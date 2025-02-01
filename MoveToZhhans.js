@@ -1,4 +1,4 @@
-$(function() {  $（function（） {
+$(function() {  $(function() {
     var self = $('.skin-vector #p-cactions .menu ul, .skin-moeskin #moe-custom-sidenav-block-list');
     var simplifyPageNameNS = [0,2,6,10,14];
     if (!self.find('li')[0]
