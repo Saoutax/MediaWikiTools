@@ -1,7 +1,7 @@
 if (mw.config.get("wgNamespaceNumber") === 2) { 
     $(mw.util.addPortletLink("p-cactions", "#", "移动到主名字空间", "move-to-main", "移动到主名字空间", "m")).on("click", function () {
         var userPageTitle = mw.config.get("wgPageName");
-        var slashIndex = userPageTitle.indexOf("/");
+        var slashIndex = userPageTitle.lastIndexOf("/");
 
         if (slashIndex === -1) {
             mw.notify("标题获取失败");
@@ -18,6 +18,7 @@ if (mw.config.get("wgNamespaceNumber") === 2) {
             reason: "编写完成",
             movetalk: "noleave",
             noredirect: true,
+            tags: "Automation tool",
             format: "json"
         })
         .done(function () {
