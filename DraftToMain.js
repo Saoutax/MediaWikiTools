@@ -1,5 +1,5 @@
 if (mw.config.get("wgNamespaceNumber") === 2) { 
-    $(mw.util.addPortletLink("p-cactions", "#", "移动到主名字空间", "move-to-main", "移动到主名字空间", "m")).on("click", function () {
+    $(mw.util.addPortletLink("p-cactions", "#", "移动到主名字空间", "move-to-main", "移动到主名字空间", "q")).on("click", function () {
         var userPageTitle = mw.config.get("wgPageName");
         var slashIndex = userPageTitle.lastIndexOf("/");
 
