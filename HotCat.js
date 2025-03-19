@@ -73,7 +73,7 @@ window.hotcat_translations_from_commons = false; // 禁止从维基共享获取�
             up: "(↑)",
         },
         changeTag: "HotCat",
-        automationChangeTag: "Bot",
+        automationChangeTag: "Automation tool",
         tooltips: {
             change: "Modify",
             remove: "Remove",
