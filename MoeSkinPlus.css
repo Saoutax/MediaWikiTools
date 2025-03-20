@@ -1,10 +1,12 @@
-/** 节假日限定主题包 **/
+/** 节假日限定主题包
 @import url("//mzh.moegirl.org.cn/index.php?title=U:鬼影233/moeskinplus/theme.css&action=raw&ctype=text/css");
- 
-/** 使用方法参见[[U:鬼影233/MoeSkinPlus]] **/
+**/
+/** 使用方法参见[[U:鬼影233/MoeSkinPlus]]
 ._addText {
 	content: "{{:U:鬼影233/MoeSkinPlus}} ";
-}
+} 
+**/
+
 body:not(.skin-vector) .site-logo-area > a:after {
 	content: "v" var(--MoeSkinPlus);
 }
