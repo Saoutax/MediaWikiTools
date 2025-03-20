@@ -1,0 +1,698 @@
+:root[color-mode="light"] > body:not(.skin-vector) {
+	--theme-accent-color--rgb: 129, 161, 193 !important;
+	--theme-secondary-color--rgb: 136, 192, 208 !important;
+	--theme-text-color--rgb: 76, 86, 106 !important;
+	--theme-link-color: rgb(64, 117, 181) !important;
+	--theme-accent-link-color: rgb(236, 239, 244) !important;
+	--theme-background-color: rgb(
+		var(--theme-background-color--rgb)
+	) !important;
+	--theme-border-color: rgb(216, 222, 233) !important;
+	--theme-text-shadow-color: rgb(46, 52, 64) !important;
+	--theme-button-color: #5e81ac !important;
+	--theme-button-color--hover: #88c0d0 !important;
+	--theme-button-color--active: #81a1c1 !important;
+	--theme-card-background-color--rgb: 236, 239, 244 !important;
+	--theme-card-box-shadow: 0 0 0.5rem rgba(46, 52, 64, 0.1) !important;
+	--theme-card-box-shadow--hover: 0 0 0.85rem rgba(46, 52, 64, 0.2) !important;
+	--theme-card-border-color: var(--theme-border-color) !important;
+	--theme-header-background-color: var(--theme-accent-link-color) !important;
+	--theme-header-box-shadow-color: var(--theme-border-color) !important;
+	--theme-footer-top-color: var(--theme-border-color) !important;
+	--theme-footer-bottom-color: var(--theme-border-color) !important;
+	--theme-toolbar-background-color: var(--theme-border-color) !important;
+	--theme-success-color: rgb(143, 188, 187) !important;
+	--theme-info-color: rgb(136, 192, 208) !important;
+	--theme-warn-color: rgb(208, 135, 112) !important;
+	--theme-danger-color: rgb(191, 97, 106) !important;
+	--theme-empty-color: rgb(188, 194, 205) !important;
+	--theme-input-background-color: var(--theme-background-color) !important;
+	--theme-input-border-color: var(--theme-border-color) !important;
+	--theme-input-border-color--hover: var(--theme-border-color) !important;
+	--theme-list-item-background-color: var(
+		--theme-header-background-color
+	) !important;
+	--theme-list-item-background-color--hover: var(
+		--theme-border-color
+	) !important;
+	--home-accent-color--rgb: var(--theme-accent-color--rgb) !important;
+	--home-secondary-color--rgb: var(--theme-secondary-color--rgb) !important;
+	--home-text-color: var(--theme-text-color) !important;
+	--home-text-secondary-color: var(
+		--theme-just-kidding-text-color
+	) !important;
+	--home-text-tertiary-color: rgb(172, 178, 190) !important;
+	--home-text-ghost-color: var(--theme-border-color) !important;
+	--home-success-color: var(--theme-success-color) !important;
+	--home-info-color: var(--theme-info-color) !important;
+	--home-warn-color: var(--theme-warn-color) !important;
+	--home-danger-color: var(--theme-danger-color) !important;
+	--home-empty-color: var(--theme-empty-color) !important;
+	--home-background-color--rgb: var(--theme-background-color--rgb) !important;
+	--home-card-border-color: var(--theme-card-border-color) !important;
+	--home-image-background-color: var(
+		--theme-card-background-color
+	) !important;
+	--theme-just-kidding-text-color: hsl(220deg, 16%, 50%);
+	--theme-accent-color: rgb(var(--theme-accent-color--rgb)) !important;
+	--theme-secondary-color: rgb(var(--theme-secondary-color--rgb)) !important;
+	--theme-text-color: rgb(var(--theme-text-color--rgb)) !important;
+	--theme-background-color--rgb: 229, 233, 240;
+	--theme-card-background-color: rgb(
+		var(--theme-card-background-color--rgb)
+	) !important;
+	--home-accent-color: rgb(var(--home-accent-color--rgb)) !important;
+	--home-secondary-color: rgb(var(--home-secondary-color--rgb)) !important;
+	--home-background-color: rgb(var(--home-background-color--rgb)) !important;
+}
+ 
+/* Tabs */
+:root[color-mode="light"] > body:not(.skin-vector) .n-tabs {
+	--n-bar-color: var(--theme-button-color) !important;
+	--n-tab-text-color-active: var(--theme-button-color--active) !important;
+	--n-tab-text-color-hover: var(--theme-button-color--hover) !important;
+}
+ 
+/* Button  */
+:root[color-mode="light"]
+	> body:not(.skin-vector)
+	.n-button--default-type:not(.n-button--color),
+:root[color-mode="light"] > body:not(.skin-vector) #p-purge-cache .n-button {
+	--n-color: rgba(70, 82, 107, 0.05) !important;
+	--n-color-hover: rgba(70, 82, 107, 0.09) !important;
+	--n-color-pressed: rgba(70, 82, 107, 0.13) !important;
+	--n-color-focus: rgba(70, 82, 107, 0.09) !important;
+	--n-color-disabled: rgba(70, 82, 107, 0.05) !important;
+	--n-text-color: var(--theme-text-color) !important;
+	--n-text-color-hover: var(--theme-button-color--hover) !important;
+	--n-text-color-pressed: var(--theme-button-color--active) !important;
+	--n-text-color-focus: var(--theme-button-color--active) !important;
+	--n-text-color-disabled: var(--theme-just-kidding-text-color) !important;
+	--n-border-hover: 1px solid var(--theme-button-color--hover) !important;
+	--n-border-pressed: 1px solid var(--theme-button-color--active) !important;
+	--n-border-focus: 1px solid var(--theme-button-color--active) !important;
+	--n-border-disabled: 1px solid var(--theme-just-kidding-text-color) !important;
+}
+:root[color-mode="light"]
+	> body:not(.skin-vector)
+	.n-button--error-type:not(.n-button--color) {
+	--n-color: rgba(191, 97, 106, 0.16) !important;
+	--n-color-hover: rgba(191, 97, 106, 0.22) !important;
+	--n-color-pressed: rgba(191, 97, 106, 0.28) !important;
+	--n-color-focus: rgba(191, 97, 106, 0.22) !important;
+	--n-color-disabled: rgba(70, 82, 107, 0.05);
+	--n-text-color: var(--theme-danger-color) !important;
+	--n-text-color-hover: var(--theme-danger-color) !important;
+	--n-text-color-pressed: var(--theme-danger-color) !important;
+	--n-text-color-focus: var(--theme-danger-color) !important;
+	--n-text-color-disabled: var(--theme-danger-color) !important;
+	--n-border: 1px solid var(--theme-danger-color) !important;
+	--n-border-hover: 1px solid #cc898d !important;
+	--n-border-pressed: 1px solid #b3525f !important;
+	--n-border-focus: 1px solid #cc898d !important;
+	--n-border-disabled: 1px solid var(--theme-danger-color) !important;
+}
+:root[color-mode="light"] > body:not(.skin-vector) .n-button--primary-type {
+	--n-color: var(--theme-button-color) !important;
+	--n-color-hover: var(--theme-button-color--hover) !important;
+	--n-color-pressed: var(--theme-button-color--active) !important;
+	--n-color-focus: var(--theme-button-color--active) !important;
+	--n-color-disabled: var(--theme-just-kidding-text-color) !important;
+	--n-ripple-color: var(--theme-button-color) !important;
+	--n-text-color: var(--theme-accent-link-color) !important;
+	--n-text-color-hover: var(--theme-accent-link-color) !important;
+	--n-text-color-pressed: var(--theme-accent-link-color) !important;
+	--n-text-color-focus: var(--theme-accent-link-color) !important;
+	--n-text-color-disabled: var(--theme-accent-link-color) !important;
+	--n-border: 1px solid var(--theme-button-color) !important;
+	--n-border-hover: 1px solid var(--theme-button-color--hover) !important;
+	--n-border-pressed: 1px solid var(--theme-button-color--active) !important;
+	--n-border-focus: 1px solid var(--theme-button-color--active) !important;
+	--n-border-disabled: 1px solid var(--theme-just-kidding-text-color) !important;
+}
+ 
+:root[color-mode="light"] > body:not(.skin-vector) .n-badge {
+	--n-color: var(--theme-danger-color) !important;
+	--n-ripple-color: var(--theme-danger-color) !important;
+}
+ 
+:root[color-mode="light"] > body:not(.skin-vector) .mobile-edit-button a:visited {
+	color: var(--n-text-color-pressed);
+}
+ 
+/* Input */
+:root[color-mode="light"] > body:not(.skin-vector) .n-input {
+	--n-border: 1px solid var(--theme-input-border-color) !important;
+	--n-border-hover: 1px solid var(--theme-button-color--hover) !important;
+	--n-border-focus: 1px solid var(--theme-button-color--active) !important;
+	--n-border-disabled: 1px solid var(--theme-just-kidding-text-color) !important;
+}
+ 
+:root[color-mode="light"]
+	> body:not(.skin-vector)
+	.n-message
+	.n-message__icon.n-message__icon--success-type
+	> * {
+	--n-icon-color-success: var(--theme-success-color) !important;
+}
+ 
+:root[color-mode="light"] > body:not(.skin-vector) img[src="https://app.moegirl.org.cn/img/MoeSkin_feedback_icon_green.png"]
+{
+	filter: hue-rotate(118deg) brightness(0.6375);
+}
+ 
+:root[color-mode="light"] > body:not(.skin-vector).page-Mainpage .header-icon {
+	filter: hue-rotate(103.5deg) brightness(0.7);
+}
+ 
+:root[color-mode="light"] > body:not(.skin-vector).page-Mainpage .home-topics::after,
+:root[color-mode="light"] > body:not(.skin-vector).page-Mainpage .home-card::after,
+:root[color-mode="light"] > body:not(.skin-vector).page-Mainpage .sitelogo {
+	filter: hue-rotate(107.5deg);
+}
+ 
+:root[color-mode="light"] > body:not(.skin-vector).page-Mainpage .n-tag__icon {
+	filter: hue-rotate(107deg) brightness(0.6875);
+}
+ 
+:root[color-mode="light"]
+	> body:not(.skin-vector)
+	#pagehistory
+	[data-mw-mod-status="1"]
+	.mod-icon {
+	color: var(--theme-success-color);
+}
+:root[color-mode="light"]
+	> body:not(.skin-vector)
+	#pagehistory
+	[data-mw-mod-status="2"]
+	.mod-icon {
+	color: var(--theme-danger-color);
+}
+:root[color-mode="light"]
+	> body:not(.skin-vector)
+	#pagehistory
+	[data-mw-is-latest-approved="true"]
+	.mod-icon {
+	color: var(--theme-info-color);
+}
+ 
+/** 审核状态标识 **/
+body:not(.skin-vector) .mod-status-tag.status-pending,
+body:not(.skin-vector) .mod-status-icon.status-pending,
+body:not(.skin-vector) .mod-status-tag.status-0,
+body:not(.skin-vector) .mod-status-icon.status-0 {
+	background-color: var(--theme-info-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-approved,
+body:not(.skin-vector) .mod-status-icon.status-approved,
+body:not(.skin-vector) .mod-status-tag.status-1,
+body:not(.skin-vector) .mod-status-icon.status-1 {
+	background-color: var(--theme-success-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-rejected,
+body:not(.skin-vector) .mod-status-icon.status-rejected,
+body:not(.skin-vector) .mod-status-tag.status-2,
+body:not(.skin-vector) .mod-status-icon.status-2 {
+	background-color: var(--theme-danger-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-unsure,
+body:not(.skin-vector) .mod-status-icon.status-unsure,
+body:not(.skin-vector) .mod-status-tag.status-3,
+body:not(.skin-vector) .mod-status-icon.status-3 {
+	background-color: var(--theme-warn-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-skipped,
+body:not(.skin-vector) .mod-status-icon.status-skipped,
+body:not(.skin-vector) .mod-status-tag.status-4,
+body:not(.skin-vector) .mod-status-icon.status-4 {
+	background-color: var(--theme-empty-color);
+	color: var(--theme-text-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-latest-approved,
+body:not(.skin-vector) .mod-status-icon.status-latest-approved {
+	background: linear-gradient(to right, var(--theme-success-color), var(--theme-info-color));
+}
+ 
+/** Prettyprint **/
+body:not(.skin-vector) .prettyprinted {
+	color: #d8dee9 !important;
+	background-color: #2e3440 !important;
+}
+body:not(.skin-vector) .prettyprinted li.L1,
+body:not(.skin-vector) .prettyprinted li.L3,
+body:not(.skin-vector) .prettyprinted li.L5,
+body:not(.skin-vector) .prettyprinted li.L7,
+body:not(.skin-vector) .prettyprinted li.L9 {
+	background-color: #3b4252 !important;
+}
+body:not(.skin-vector) .prettyprinted .com,
+body:not(.skin-vector) .preLangWrap::after {
+	color: #616e88;
+}
+body:not(.skin-vector) .prettyprinted .kwd,
+body:not(.skin-vector) .prettyprinted .pun,
+body:not(.skin-vector) .prettyprinted .tag {
+	color: #81a1c1;
+}
+body:not(.skin-vector) .prettyprinted .str {
+	color: #a3be8c;
+}
+body:not(.skin-vector) .prettyprinted .pln,
+body:not(.skin-vector) .prettyprinted .atn {
+	color: #8fbcbb;
+}
+body:not(.skin-vector) .prettyprinted .lit,
+body:not(.skin-vector) .prettyprinted .dec {
+	color: #b48ead;
+}
+body:not(.skin-vector) .prettyprinted .typ {
+	color: #88c0d0;
+}
+body:not(.skin-vector) .prettyprinted .atv {
+	color: #eceff4;
+}
+body:not(.skin-vector) .prettyprinted li::marker {
+	color: #4c566a;
+}
+body:not(.skin-vector) .prettyprinted ::selection {
+	background-color: rgba(76, 86, 106, 0.8);
+}
+ 
+/** Prism **/
+body:not(.skin-vector) .prism-prettyprint-container {
+	background-color: #2e3440 !important;
+}
+body:not(.skin-vector)
+	#mw-content-text
+	pre.prism-prettyprint-container[class*="language-"]
+	> code.prism-prettyprint {
+	background-color: #2e3440;
+	background-image: linear-gradient(
+		transparent 50%,
+		rgb(216, 222, 233, 0.04) 50%
+	) !important;
+}
+body:not(.skin-vector)
+	#mw-content-text
+	:not(pre.prism-prettyprint-container)
+	> code.prism-prettyprint[class*="language-"],
+body:not(.skin-vector)
+	#mw-content-text
+	pre.prism-prettyprint-container[class*="language-"] {
+	background-color: #2e3440;
+}
+body:not(.skin-vector) pre.prism-prettyprint-container[class*="language-"]:before,
+body:not(.skin-vector) pre.prism-prettyprint-container[class*="language-"]:after {
+	box-shadow: 0px 13px 8px 0px #2e3440;
+}
+body:not(.skin-vector) #mw-content-text code.prism-prettyprint[class*="language-"],
+body:not(.skin-vector)
+	#mw-content-text
+	pre.prism-prettyprint-container[class*="language-"],
+body:not(.skin-vector) .prism-prettyprint .token.property,
+body:not(.skin-vector) .prism-prettyprint .token.class-name,
+body:not(.skin-vector) .prism-prettyprint .token.regex-delimiter,
+body:not(.skin-vector) .prism-prettyprint .token.property-access {
+	color: #d8dee9;
+}
+body:not(.skin-vector) .prism-prettyprint .token.regex {
+	color: #ebcb8b;
+}
+body:not(.skin-vector) #mw-content-text code.prism-prettyprint,
+body:not(.skin-vector) .mw-parser-output code.prism-prettyprint,
+body:not(.skin-vector) .moe-wikitext-output code.prism-prettyprint {
+	border-color: #4c566a;
+}
+body:not(.skin-vector)
+	#mw-content-text
+	pre.prism-prettyprint-container[class*="language-"]
+	> code.prism-prettyprint {
+	border-left-color: #5e81ac;
+	box-shadow: -1px 0px 0px 0px #5e81ac, 0px 0px 0px 1px #4c566a;
+}
+body:not(.skin-vector) .prism-prettyprint-container.line-numbers .line-numbers-rows {
+	border-right-color: #4c566a;
+}
+body:not(.skin-vector) .prism-prettyprint .line-numbers-rows > span:before {
+	color: #4c566a;
+}
+body:not(.skin-vector)
+	#mw-content-text
+	:not(pre)
+	> code.prism-prettyprint[class*="language-"] {
+	color: #bf616a;
+}
+body:not(.skin-vector) .prism-prettyprint .operator,
+body:not(.skin-vector) .prism-prettyprint .entity,
+body:not(.skin-vector) .prism-prettyprint .url,
+body:not(.skin-vector) .prism-prettyprint .variable,
+body:not(.skin-vector) .prism-prettyprint.language-css .token.string,
+body:not(.skin-vector) .prism-prettyprint .style .token.string {
+	background-color: unset;
+}
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-1,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-5,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-9,
+body:not(.skin-vector) .prism-prettyprint .token.punctuation,
+body:not(.skin-vector) .prism-prettyprint .token.class,
+body:not(.skin-vector) .prism-prettyprint .token.maybe-class-name,
+body:not(.skin-vector) .prism-prettyprint .token.attr-name,
+body:not(.skin-vector) .prism-prettyprint .token.constant,
+body:not(.skin-vector) .prism-prettyprint .token.url.bold {
+	color: #8fbcbb;
+}
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-2,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-6,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-10,
+body:not(.skin-vector) .prism-prettyprint .token.function,
+body:not(.skin-vector) .prism-prettyprint .token.variable {
+	color: #88c0d0;
+}
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-3,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-7,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-11,
+body:not(.skin-vector) .prism-prettyprint .token.selector,
+body:not(.skin-vector) .prism-prettyprint .token.atrule,
+body:not(.skin-vector) .prism-prettyprint .token.rule,
+body:not(.skin-vector) .prism-prettyprint .token.unit,
+body:not(.skin-vector) .prism-prettyprint .token.important,
+body:not(.skin-vector) .prism-prettyprint .token.operator,
+body:not(.skin-vector) .prism-prettyprint .token.easing,
+body:not(.skin-vector) .prism-prettyprint .token.keyword,
+body:not(.skin-vector) .prism-prettyprint .token.boolean,
+body:not(.skin-vector) .prism-prettyprint .token.tag,
+body:not(.skin-vector) .prism-prettyprint .token.function.bold,
+body:not(.skin-vector) .prism-prettyprint .token.url,
+body:not(.skin-vector) .prism-prettyprint .token.symbol,
+body:not(.skin-vector) .prism-prettyprint .token.builtin {
+	color: #81a1c1;
+}
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-4,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-8,
+body:not(.skin-vector)
+	.prism-prettyprint.rainbow-braces
+	.token.punctuation.brace-level-12 {
+	color: #5e81ac;
+}
+body:not(.skin-vector) .prism-prettyprint .comment {
+	color: #616e88;
+}
+body:not(.skin-vector) .prism-prettyprint .token.string,
+body:not(.skin-vector) .prism-prettyprint .token.attr-value {
+	color: #a3be8c;
+}
+body:not(.skin-vector) .prism-prettyprint .token.number,
+body:not(.skin-vector) .prism-prettyprint .token.angle,
+body:not(.skin-vector) .prism-prettyprint .token.time,
+body:not(.skin-vector) .prism-prettyprint .token.easing:has(.token.punctuation) {
+	color: #b48ead;
+}
+ 
+/** CodeMirror **/
+body:not(.skin-vector) .CodeMirror,
+body:not(.skin-vector) .cm-editor {
+	background-color: #2e3440 !important;
+}
+body:not(.skin-vector) .cm-editor,
+body:not(.skin-vector) .cm-editor * {
+	caret-color: currentColor;
+}
+body:not(.skin-vector) .cm-cursor,
+body:not(.skin-vector) .CodeMirror-cursor {
+	border-color: currentColor;
+}
+body:not(.skin-vector) .cm-editor,
+body:not(.skin-vector) .cm-mw-template,
+body:not(.skin-vector) .cm-panels,
+body:not(.skin-vector) .cm-qualifier,
+body:not(.skin-vector) .cm-type,
+body:not(.skin-vector) .cm-variable-2,
+body:not(.skin-vector) .cm-variable-3,
+body:not(.skin-vector) .cm-variable,
+body:not(.skin-vector) .CodeMirror,
+body:not(.skin-vector) .ͼh {
+	color: #d8dee9;
+}
+body:not(.skin-vector) .CodeMirror-gutters,
+body:not(.skin-vector) .cm-gutters {
+	background-color: #3b4252 !important;
+	border-right: none;
+}
+body:not(.skin-vector) .cm-comment,
+body:not(.skin-vector) .cm-gutters,
+body:not(.skin-vector) .cm-meta,
+body:not(.skin-vector) .cm-mw-comment,
+body:not(.skin-vector) .CodeMirror-guttermarker-subtle,
+body:not(.skin-vector) .CodeMirror-guttermarker,
+body:not(.skin-vector) .CodeMirror-linenumber,
+body:not(.skin-vector) .ͼl,
+body:not(.skin-vector) .ͼm,
+body:not(.skin-vector) .ͼ5 {
+	color: #4c566a !important;
+}
+body:not(.skin-vector) .cm-tooltip {
+	background-color: #4c566a;
+	border-color: #434c5e;
+}
+body:not(.skin-vector) .cm-highlightSpace {
+	background-image: radial-gradient(circle at 50% 55%, #4c566a 19.5%, transparent 20.5%);
+}
+body:not(.skin-vector) .CodeMirror-matchingbracket {
+	color: #eceff4 !important;
+	text-decoration: none;
+	box-shadow: 0 0 0 0.5px #88c0d0;
+}
+body:not(.skin-vector) .cm-lintRange-active {
+	background-color: unset;
+}
+body:not(.skin-vector) .cm-lintRange-active,
+body:not(.skin-vector) .CodeMirror-nonmatchingbracket {
+	box-shadow: 0 0 0 0.5px #ebcb8b;
+}
+body:not(.skin-vector) .cm-nonmatchingBracket {
+	background-color: #bf616a44 !important;
+}
+body:not(.skin-vector) .cm-diagnostic-info {
+	border-color: #4c566a;
+}
+body:not(.skin-vector) .cm-lint-marker-warning {
+	content: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3Cpath%20fill='%23eedb9b'%20stroke='%23ebcb8b'%20stroke-width='6'%20stroke-linejoin='round'%20d='M20%206L37%2035L3%2035Z'/%3E%3C/svg%3E");
+}
+body:not(.skin-vector) .cm-lintRange-warning {
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='6'%20height='3'%3E%3Cpath%20d='m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200'%20stroke='%23d08770'%20fill='none'%20stroke-width='.7'/%3E%3C/svg%3E");
+}
+body:not(.skin-vector) .cm-diagnostic-warning {
+	border-color: #d08770;
+}
+body:not(.skin-vector) .cm-lint-marker-error {
+	content: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3Ccircle%20cx='20'%20cy='20'%20r='15'%20fill='%23db8488'%20stroke='%23bf616a'%20stroke-width='6'/%3E%3C/svg%3E");
+}
+body:not(.skin-vector) .cm-mw-error,
+body:not(.skin-vector) .cm-mw-parserfunction-bracket,
+body:not(.skin-vector) .cm-mw-parserfunction-delimiter,
+body:not(.skin-vector) .cm-mw-parserfunction-name,
+body:not(.skin-vector) .CodeMirror-nonmatchingbracket,
+body:not(.skin-vector) .ͼn {
+	color: #bf616a;
+}
+body:not(.skin-vector) .cm-error {
+	background-color: #bf616a;
+	color: #f8f8f0;
+}
+body:not(.skin-vector) .cm-lintRange-error {
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='6'%20height='3'%3E%3Cpath%20d='m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200'%20stroke='%23bf616a'%20fill='none'%20stroke-width='.7'/%3E%3C/svg%3E");
+}
+body:not(.skin-vector) .cm-diagnostic-error {
+	border-color: #bf616a;
+}
+body:not(.skin-vector) .cm-comment.cm-def {
+	color: #bc9262;
+}
+body:not(.skin-vector) .cm-comment.cm-tag {
+	color: #bc6283;
+}
+body:not(.skin-vector) .cm-comment.cm-type {
+	color: #5998a6;
+}
+body:not(.skin-vector) .cm-mw-templatevariable-bracket,
+body:not(.skin-vector) .cm-mw-templatevariable-delimiter,
+body:not(.skin-vector) .cm-mw-templatevariable-name,
+body:not(.skin-vector) .cm-mw-templatevariable,
+body:not(.skin-vector) .cm-string-2,
+body:not(.skin-vector) .ͼf {
+	color: #d08770;
+}
+body:not(.skin-vector) .cm-trailingspace {
+	text-decoration-color: #bf616a;
+}
+body:not(.skin-vector) .cm-mw-exttag-attribute,
+body:not(.skin-vector) .cm-mw-exttag-bracket,
+body:not(.skin-vector) .cm-mw-exttag-name,
+body:not(.skin-vector) .cm-mw-htmltag-attribute,
+body:not(.skin-vector) .cm-mw-htmltag-bracket,
+body:not(.skin-vector) .cm-mw-htmltag-name,
+body:not(.skin-vector) .cm-string,
+body:not(.skin-vector) .ͼd,
+body:not(.skin-vector) .ͼe {
+	color: #a3be8c;
+}
+body:not(.skin-vector) .cm-atom,
+body:not(.skin-vector) .cm-header,
+body:not(.skin-vector) .cm-link,
+body:not(.skin-vector) .cm-mw-table-bracket,
+body:not(.skin-vector) .cm-mw-table-definition,
+body:not(.skin-vector) .cm-mw-table-delimiter,
+body:not(.skin-vector) .cm-mw-table-delimiter2,
+body:not(.skin-vector) .cm-number,
+body:not(.skin-vector) .ͼc,
+body:not(.skin-vector) .ͼb {
+	color: #b48ead;
+}
+body:not(.skin-vector) .cm-comment.cm-attribute,
+body:not(.skin-vector) .cm-mw-exttag-attribute-value,
+body:not(.skin-vector) .cm-mw-htmltag-attribute-value {
+	color: #97b757;
+}
+body:not(.skin-vector) .cm-attribute,
+body:not(.skin-vector) .cm-def,
+body:not(.skin-vector) .cm-property,
+body:not(.skin-vector) .cm-mw-mnemonic,
+body:not(.skin-vector) .ͼg,
+body:not(.skin-vector) .ͼj {
+	color: #8fbcbb;
+}
+body:not(.skin-vector) .cm-bracket,
+body:not(.skin-vector) .ͼi,
+body:not(.skin-vector) .cm-mw-image-parameter,
+body:not(.skin-vector) .cm-mw-link-tosection {
+	color: #81a1c1;
+}
+body:not(.skin-vector) .cm-mw-apostrophes-bold,
+body:not(.skin-vector) .cm-mw-apostrophes-italic,
+body:not(.skin-vector) .cm-mw-extlink-bracket,
+body:not(.skin-vector) .cm-mw-extlink-protocol,
+body:not(.skin-vector) .cm-mw-extlink,
+body:not(.skin-vector) .cm-mw-free-extlink-protocol,
+body:not(.skin-vector) .cm-mw-free-extlink,
+body:not(.skin-vector) .cm-mw-hr,
+body:not(.skin-vector) .cm-mw-indenting,
+body:not(.skin-vector) .cm-mw-link-bracket,
+body:not(.skin-vector) .cm-mw-link-delimiter,
+body:not(.skin-vector) .cm-mw-link-pagename,
+body:not(.skin-vector) .cm-mw-link-tosection,
+body:not(.skin-vector) .cm-mw-link,
+body:not(.skin-vector) .cm-mw-list,
+body:not(.skin-vector) .cm-mw-section-header,
+body:not(.skin-vector) .cm-mw-signature {
+	color: #5e81ac;
+}
+body:not(.skin-vector) .cm-mw-table-definition-value,
+body:not(.skin-vector) .cm-mw-template-argument-name,
+body:not(.skin-vector) .cm-mw-template-bracket,
+body:not(.skin-vector) .cm-mw-template-delimiter,
+body:not(.skin-vector) .cm-mw-template-name {
+	color: #9f78a5;
+}
+body:not(.skin-vector) .cm-tag {
+	color: #bf616a;
+}
+body:not(.skin-vector) .cm-tag.cm-matchingtag {
+	background-color: #5e262c;
+}
+body:not(.skin-vector) .cm-builtin,
+body:not(.skin-vector) .cm-keyword,
+body:not(.skin-vector) .cm-mw-redirect,
+body:not(.skin-vector) .ͼa {
+	color: #81a1c1;
+}
+body:not(.skin-vector) .cm-mw-skipformatting {
+	background-color: #88c0d0;
+}
+body:not(.skin-vector) .cm-mw-hr,
+body:not(.skin-vector) .cm-mw-signature,
+body:not(.skin-vector) .cm-panels,
+body:not(.skin-vector) .CodeMirror-activeline-background {
+	background-color: #3b4252;
+}
+body:not(.skin-vector) .cm-matchingtag {
+	background-color: #587240;
+}
+body:not(.skin-vector) .cm-panel.cm-panel-lint ul [aria-selected],
+body:not(.skin-vector) .cm-search,
+body:not(.skin-vector) div.CodeMirror-selected {
+	background-color: #434c5e;
+}
+body:not(.skin-vector) .cm-panel.cm-panel-lint ul:focus [aria-selected] {
+	background-color: #4c566a;
+	color: #e5e9f0;
+}
+body:not(.skin-vector) .cm-activeLine {
+	background-color: #4c566a44;
+}
+body:not(.skin-vector) .cm-panel.cm-panel-lint [name="close"],
+body:not(.skin-vector) .cm-panel.cm-search [name="close"] {
+	color: currentColor;
+}
+body:not(.skin-vector) .cm-panels-bottom {
+	border-color: #434c5e;
+}
+body:not(.skin-vector) .cm-button {
+	background-image: unset;
+	background-color: #4c566a;
+	border-color: #4c566a;
+}
+body:not(.skin-vector) .cm-button:active {
+	background-image: unset;
+	background-color: #3b4252;
+}
+body:not(.skin-vector) .cm-textfield {
+	background-color: #3b4252 !important;
+	border-color: #4c566a !important;
+}
+body:not(.skin-vector) .cm-searchMatch {
+	background-color: #ebcb8b54;
+}
+ 
+body:not(.skin-vector) .cm-editor ::-moz-selection,
+body:not(.skin-vector) .CodeMirror ::-moz-selection,
+body:not(.skin-vector) .cm-line ::-moz-selection,
+body:not(.skin-vector) .CodeMirror-line::-moz-selection,
+body:not(.skin-vector) .cm-line > span ::-moz-selection,
+body:not(.skin-vector) .CodeMirror-line > span::-moz-selection,
+body:not(.skin-vector) .cm-line > span > span ::-moz-selection,
+body:not(.skin-vector) .CodeMirror-line > span > span::-moz-selection {
+	background-color: #4c566a !important;
+}
+body:not(.skin-vector) .cm-editor ::selection,
+body:not(.skin-vector) .CodeMirror ::selection,
+body:not(.skin-vector) .cm-line ::selection,
+body:not(.skin-vector) .CodeMirror-line::selection,
+body:not(.skin-vector) .cm-line > span ::selection,
+body:not(.skin-vector) .CodeMirror-line > span::selection,
+body:not(.skin-vector) .cm-line > span > span ::selection,
+body:not(.skin-vector) .CodeMirror-line > span > span::selection {
+	background-color: #4c566a !important;
+}
