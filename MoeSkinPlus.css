@@ -1,0 +1,1065 @@
+/** 节假日限定主题包 **/
+@import url("//mzh.moegirl.org.cn/index.php?title=U:鬼影233/moeskinplus/theme.css&action=raw&ctype=text/css");
+ 
+/** 使用方法参见[[U:鬼影233/MoeSkinPlus]] **/
+._addText {
+	content: "{{:U:鬼影233/MoeSkinPlus}} ";
+}
+body:not(.skin-vector) .site-logo-area > a:after {
+	content: "v" var(--MoeSkinPlus);
+}
+ 
+/** 全局调整 **/
+/*.https://gui-ying233.github.io/Nest/Convert%20Data%20Types%20in%20CSS */
+@property --d2d {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 0;
+}
+/* 光标颜色 */
+body:not(.skin-vector) * {
+	caret-color: var(--theme-text-color);
+	caret-color: currentcolor;
+}
+/* img */
+body:not(.skin-vector) img {
+	vertical-align: middle;
+	font-style: italic;
+}
+body:not(.skin-vector) .xicon > img {
+	-webkit-use-select: none;
+	user-select: none;
+}
+/* 牺牲渲染速度以获取更好的换行布局 */
+body:not(.skin-vector) p:not([class]):not([id]) {
+	text-wrap: pretty;
+}
+body:not(.skin-vector) [style*="text-wrap: wrap"],
+body:not(.skin-vector) [style*="text-wrap:wrap"] {
+	text-wrap: pretty !important;
+}
+ 
+/** 更大的主体 **/
+body:not(.skin-vector) main.moe-flexible-container {
+	width: 97.5%;
+}
+@media (max-width: 768px) {
+	body:not(.skin-vector) main.moe-flexible-container {
+		width: 100%;
+	}
+}
+ 
+/** 超超超超超低像素的背景图片 **/
+body:not(.skin-vector) #moe-global-background {
+	--background-url: url("//storage.moegirl.org.cn/console-plus/uploads/2024/10/10/bcc8bbfa2ce1438ded8ee209222109ee.jpeg"),
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAAXNSR0IArs4c6QAAAdZJREFUKFNd0M9rknEAx/H31x+pj1NLGbpnlSyX9vsH5SroNKJauwTB/oNR6xQdO3RpUDehSxAddopgt2Adpg3MtTwErh+SlcasZTNtc+6ZNfV5vtGhmH3+gBcf3mL46riMBr247E68Hgvh/h4O7VLpcjr4Owl8r9VZKpaZX6yzsrzG+28lov0qYnRkVAZDXkrlPCZlB+eHzjB4fDcOu70DWFldY/rFJ9z6V7KvC7i7VbYHnIjrd+7JiGKQ+1xDscHYxcOooRDCrHQAWqPBrx8VilWNeHKeY5esfMjlEI8e3pXnVBvJiokLw2dpreexmHqxWhyIfwS0DB2TWWejmKHi24LPLhmLTSI0LSufF8p4zQpHI1bMbRtaHZy2LoTYRAhB26rwLpNm74kI8bmnTEy9QTSlIZdKC+jNBs8mY0QHh+jp3YPH8R9gEqxv1FgozTCVesupZZUbiSQimbosvYpKHRdeaxBf248tsA2X4ux4IGWL1Z81bE4ft26O86RaQ28piGz6ttTdO7EoYV7NpFECAU4eCNPt9nQCGOiGZDqRIpZIUphNM3LlGuLl4mMZcZ/mwf0Jqk2NgSMHGdjfh9+zdRMg+VPUMCSZj3ni6S/MZubw9+3jN/gitI95MO3IAAAAAElFTkSuQmCC");
+}
+ 
+/** header 调整 **/
+/** Logo **/
+body:not(.skin-vector) img.site-logo {
+	content: url("//img.moegirl.org.cn/common/3/33/MoegirlPedia-Title.svg");
+}
+/* badge 红色使用皮肤警告色 */
+body:not(.skin-vector) div.n-badge {
+	--n-color: var(--theme-danger-color) !important;
+}
+/* 搜索栏调整 */
+body:not(.skin-vector) input[placeholder],
+body:not(.skin-vector) .n-input__placeholder {
+	user-select: none;
+}
+/* 头像调整 */
+body:not(.skin-vector) .avatar-upload-link {
+	display: block;
+	aspect-ratio: 1;
+}
+/* 通知提醒颜色调整 */
+body:not(.skin-vector) div[data-name="message"] sup.n-badge-sup {
+	--n-color: var(--theme-info-color);
+}
+/** 通知下按钮访问过后的颜色调整 **/
+body:not(.skin-vector) .n-tab-pane.alerts a.n-button:visited,
+body:not(.skin-vector) .n-tab-pane.message a.n-button:visited {
+	color: var(--n-text-color-pressed);
+}
+/* 窄屏特殊繁简转换按钮显示 */
+@media (max-width: 768px) {
+	body:not(.skin-vector) #moe-article-header-top > .desktop-only.flex {
+		display: flex !important;
+		position: static;
+	}
+	body:not(.skin-vector)
+		#moe-article-header-top
+		> .desktop-only.flex
+		> .left-block,
+	body:not(.skin-vector) #p-purge-cache {
+		display: none;
+	}
+}
+ 
+/** 调整主体与目录顺序位置 **/
+body:not(.skin-vector) #moe-article {
+	order: 1;
+}
+body:not(.skin-vector) #moe-sidenav-toggle-btn .moe-icon {
+	transform: rotate(180deg);
+}
+body:not(.skin-vector) #moe-article.is-show-siderail {
+	margin-left: 1.5rem;
+}
+@media (max-width: 768px) {
+	body:not(.skin-vector) #moe-article,
+	body:not(.skin-vector) #moe-article.is-show-siderail {
+		margin-left: 0;
+	}
+}
+body:not(.skin-vector) div #moe-page-tools > div.flex-1 {
+	flex: 0.85;
+}
+ 
+/** 命名空间链接聚焦优化 **/
+body:not(.skin-vector) .namespaces-links-list a:focus {
+	text-decoration: none;
+	color: var(--theme-button-color);
+	box-shadow: 0 -2px 0 var(--theme-accent-color) inset;
+}
+ 
+/** 侧边栏调整 **/
+body:not(.skin-vector) .anchor-link:not(.active) {
+	transform: translateX(-0.5em);
+}
+body:not(.skin-vector) .moe-toc-tree.root > .moe-toc-item {
+	margin-left: calc(1rem + 0.5em);
+}
+body:not(.skin-vector) #moe-custom-sidenav-block-list > li,
+body:not(.skin-vector) #p-sl-list > li {
+	cursor: pointer;
+	border-radius: 0.125em;
+	list-style: none;
+	transition: 0.12s background-color cubic-bezier(0.4, 0, 0.2, 1);
+}
+body:not(.skin-vector) #moe-custom-sidenav-block-list > li > a:focus,
+body:not(.skin-vector) #p-sl-list > li > a:focus {
+	text-decoration: none;
+}
+body:not(.skin-vector) #moe-custom-sidenav-block-list > li {
+	list-style: none;
+}
+body:not(.skin-vector) #moe-custom-sidenav-block-list > li:hover,
+body:not(.skin-vector) #p-sl-list > li:hover {
+	background-color: rgba(var(--theme-text-color--rgb), 7.5%);
+}
+body:not(.skin-vector) #moe-custom-sidenav-block-list > li > a,
+body:not(.skin-vector) #p-sl-list > li > a {
+	display: inline-block;
+	width: 100%;
+	padding-left: 0.25em;
+}
+ 
+/* 作品讨论 */
+body:not(.skin-vector) .artwork-main .artwork-carousel + div sup.n-badge-sup {
+	background: unset;
+	color: var(--n-tab-text-color);
+}
+body:not(.skin-vector)
+	.artwork-main
+	.artwork-carousel
+	+ div
+	.n-tabs
+	.n-tabs-rail
+	.n-tabs-tab-wrapper
+	.n-tabs-tab.n-tabs-tab--active
+	sup.n-badge-sup {
+	color: var(--n-tab-text-color-active);
+}
+body:not(.skin-vector)
+	.artwork-main
+	.artwork-carousel
+	+ div
+	.n-tabs
+	.n-tabs-rail
+	.n-tabs-tab-wrapper
+	.n-tabs-tab:hover
+	sup.n-badge-sup {
+	color: var(--n-tab-text-color-hover);
+}
+body:not(.skin-vector) .n-carousel .n-carousel__slides {
+	align-items: center;
+}
+body:not(.skin-vector)
+	.artwork-main
+	.n-card__content
+	> .n-thing
+	> .n-thing-main
+	> .n-thing-avatar-header-wrapper
+	img {
+	object-fit: cover;
+}
+ 
+/** 首页调整 **/
+body:not(.skin-vector) .capsule-card .topic-thumb img {
+	height: 100%;
+}
+body:not(.skin-vector) .n-popover__content > .n-text {
+	--n-text-color: inherit;
+}
+body:not(.skin-vector) .ql-align-center > img {
+	height: auto;
+}
+body:not(.skin-vector) .ql-preview a {
+	cursor: pointer;
+}
+body:not(.skin-vector)
+	.ql-editor
+	> p
+	> span[style*="background-color: rgb(255, 255, 255);"] {
+	background-color: initial !important;
+}
+body:not(.skin-vector) .ql-editor > p > span[style*="color: rgb(51, 51, 51);"] {
+	color: inherit !important;
+}
+body:not(.skin-vector) .bangumi-thumb > img {
+	height: 100% !important;
+}
+ 
+/** Popus 调整 **/
+body:not(.skin-vector) .navpopup {
+	border-radius: 0.2rem;
+}
+ 
+/** 工具条调整 **/
+body:not(.skin-vector) #moe-global-toolbar {
+	right: 5.5rem;
+}
+body:not(.skin-vector)
+	#moe-global-toolbar
+	.toolbar-link.more-actions
+	> .dropdown-content
+	> ul
+	> li
+	> a {
+	transition: background-color 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+ 
+/** 侧边按钮调整样式 **/
+body:not(.skin-vector) #bottomRightCorner > div {
+	color: var(--theme-button-color);
+	background-color: var(--theme-accent-link-color);
+	border: solid var(--theme-card-border-color);
+	border-width: 1px 0 1px 1px;
+	border-radius: 0.2rem 0 0 0.2rem;
+	transition: all 0.24s ease !important;
+	opacity: 0.9 !important;
+}
+body:not(.skin-vector) #bottomRightCorner > div:hover {
+	color: var(--theme-accent-link-color);
+	background-color: var(--theme-button-color);
+	border-color: var(--theme-button-color);
+	box-shadow: 0 0 0 2px var(--theme-list-item-background-color--hover);
+}
+body:not(.skin-vector) #ca-more-actions li > a {
+	transition: all 0.24s ease;
+	color: var(--theme-button-color);
+}
+body:not(.skin-vector) .tooltip #cm-settings > a {
+	display: inline-block;
+	padding: 0.4rem 0.8rem;
+	line-height: 1.5;
+	border-radius: 0.2rem;
+}
+body:not(.skin-vector) .page-tool-link .more-actions-list li a:hover {
+	background-color: var(--theme-list-item-background-color--hover);
+}
+/* W+按钮图标（赞美 U:あめろ */
+body:not(.skin-vector) #ca-wikiplus > span {
+	display: inline-block;
+	vertical-align: middle;
+	height: 1em;
+	width: 1em;
+	overflow: hidden;
+}
+body:not(.skin-vector) #ca-wikiplus > span > span {
+	display: block;
+	width: 512px;
+	height: 512px;
+	background-color: var(--theme-button-color);
+	--d2d: calc(1em);
+	transform: scale(calc(tan(atan2(var(--d2d), 1px)) / 0.7 / 512));
+	transform-origin: left top;
+	clip-path: path(
+		"M344.25,451.26a15.992,15.992,0,0,1-20.11-4.74L247.11,342.41l-57.54,92.07A16.015,16.015,0,0,1,176,442h-.33a16.005,16.005,0,0,1-13.57-8.08l-160-281A16,16,0,0,1,16,129h92a16.017,16.017,0,0,1,14.67,9.6l69.28,158.85,58.17-101.41A16,16,0,0,1,264,188a16.851,16.851,0,0,1,1.73.09,16.013,16.013,0,0,1,13.54,11.13l73,233A16.006,16.006,0,0,1,344.25,451.26ZM496,115H449V61a16,16,0,0,0-16-16H408a16,16,0,0,0-16,16v54H340a16,16,0,0,0-16,16v22a16,16,0,0,0,16,16h52v57a16,16,0,0,0,16,16h17a24.006,24.006,0,0,0,24-24V169h47a16,16,0,0,0,16-16V131A16,16,0,0,0,496,115Z"
+	);
+	transition: all 0.24s ease;
+}
+body:not(.skin-vector) #ca-wikiplus:hover > span > span {
+	color: var(--theme-accent-link-color);
+	box-shadow: var(--theme-card-box-shadow--hover);
+	background-color: var(--theme-accent-link-color);
+}
+/* 序言编辑按钮图标（赞美 U:GuoPC */
+body:not(.skin-vector) #ca-editTopSection > span {
+	display: inline-block;
+	vertical-align: middle;
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+}
+body:not(.skin-vector) #ca-editTopSection > span > span {
+	display: block;
+	width: 512px;
+	height: 512px;
+	background-color: var(--theme-button-color);
+	transform: scale(calc(2 / 3));
+	transform-origin: left top;
+	clip-path: path(
+		"M4 21h4a1 1 0 00.707-.293l10.5-10.5a3.828 3.828 0 10-5.414-5.414l-10.5 10.5a1 1 0 00-.293.707l0 4a1 1 0 001 1M5 19l0-2.586 8.5-8.5 2.586 2.586-8.5 8.5-2.586 0M17.5 9.086l-2.586-2.586.293-.293a1.828 1.828 0 112.586 2.586l-.293.293M16 17.5v3a3 3 0 106 0v-3a3 3 0 10-6 0m2 0a1 1 0 012 0v3a1 1 0 01-2 0v-3Z"
+	);
+	transition: all 0.24s ease;
+}
+body:not(.skin-vector) #ca-editTopSection:hover > span > span {
+	color: var(--theme-accent-link-color);
+	box-shadow: var(--theme-card-box-shadow--hover);
+	background-color: var(--theme-accent-link-color);
+}
+body:not(.skin-vector)
+	.oo-ui-dropdownWidget.oo-ui-widget-enabled
+	.oo-ui-dropdownWidget-handle:focus,
+body:not(.skin-vector) .oo-ui-inputWidget-input:focus {
+	background-color: var(--theme-background-color);
+	border-color: var(--theme-button-color);
+	box-shadow: unset;
+}
+@media screen and (min-width: 0) {
+	body:not(.skin-vector)
+		.oo-ui-textInputWidget.oo-ui-widget-enabled
+		textarea:focus {
+		outline-color: var(--theme-button-color);
+	}
+}
+ 
+/** 最近更改、版本历史美化 **/
+body:not(.skin-vector) .mw-changeslist .mw-changeslist-line {
+	display: flex;
+	box-sizing: content-box !important;
+	margin: 0.25em 0;
+	padding: 0.25em;
+	border-radius: 0.25em;
+	transition: 0.12s background-color cubic-bezier(0.4, 0, 0.2, 1);
+}
+body:not(.skin-vector) .mw-changeslist .mw-changeslist-line > tbody {
+	width: 100%;
+}
+body:not(.skin-vector) #pagehistory > li {
+	border-color: var(--theme-border-color) !important;
+	margin: 0.25em 0;
+	padding: 0.25em;
+	border-radius: 0.25em;
+	transition-duration: 0.12s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-property: background-color, opacity;
+}
+body:not(.skin-vector) .mw-changeslist .mw-changeslist-line:hover,
+body:not(.skin-vector) #pagehistory li:hover {
+	background-color: rgba(var(--theme-text-color--rgb), 7.5%);
+}
+body:not(.skin-vector) #pagehistory > li > .jquery-confirmable-wrapper {
+	vertical-align: text-bottom;
+}
+body:not(.skin-vector) .userlink-avatar {
+	box-sizing: border-box;
+	width: var(--n-merged-size);
+	height: var(--n-merged-size);
+	color: #fff;
+	font-size: var(--n-font-size);
+	display: inline-flex;
+	position: relative;
+	text-align: center;
+	border: var(--n-border);
+	border-radius: var(--n-border-radius);
+	--n-merged-color: var(--n-color);
+	background-color: var(--n-merged-color);
+	transition: border-color 0.3s var(--n-bezier),
+		background-color 0.3s var(--n-bezier), color 0.3s var(--n-bezier);
+	--n-font-size: 14px;
+	--n-border: var(--border);
+	--n-border-radius: 50%;
+	--n-color: rgba(204, 204, 204, 1);
+	--n-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+	--n-merged-size: var(--n-avatar-size-override, 34px);
+	--border: 2px solid var(--theme-card-border-color);
+	--n-avatar-size-override: 28px;
+	vertical-align: middle;
+}
+body:not(.skin-vector) .userlink-avatar img.userlink-avatar-small {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: var(--n-border-radius);
+}
+body:not(.skin-vector) .userlink-avatar-large {
+	--n-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+		0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+	--n-color: #fff;
+	--n-border-radius: 3px;
+	--n-padding: 14px;
+	background-color: var(--n-color);
+	border-radius: var(--n-border-radius);
+	border-color: var(--theme-border-color);
+	padding: var(--n-padding);
+	box-shadow: var(--n-box-shadow);
+	opacity: 0;
+	transition-property: opacity, display, z-index;
+	transition-duration: 0.3s;
+	transition-behavior: allow-discrete;
+}
+body:not(.skin-vector) .userlink-avatar-hover:hover .userlink-avatar-large {
+	opacity: 1;
+}
+@starting-style {
+	body:not(.skin-vector) .userlink-avatar-hover:hover .userlink-avatar-large {
+		opacity: 0;
+	}
+}
+body:not(.skin-vector) .mod-status-tag.status-pending,
+body:not(.skin-vector) .mod-status-icon.status-pending,
+body:not(.skin-vector) .mod-status-tag.status-0,
+body:not(.skin-vector) .mod-status-icon.status-0 {
+	background-color: var(--theme-info-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-approved,
+body:not(.skin-vector) .mod-status-icon.status-approved,
+body:not(.skin-vector) .mod-status-tag.status-1,
+body:not(.skin-vector) .mod-status-icon.status-1 {
+	background-color: var(--theme-success-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-rejected,
+body:not(.skin-vector) .mod-status-icon.status-rejected,
+body:not(.skin-vector) .mod-status-tag.status-2,
+body:not(.skin-vector) .mod-status-icon.status-2 {
+	background-color: var(--theme-danger-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-unsure,
+body:not(.skin-vector) .mod-status-icon.status-unsure,
+body:not(.skin-vector) .mod-status-tag.status-3,
+body:not(.skin-vector) .mod-status-icon.status-3 {
+	background-color: var(--theme-warn-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-skipped,
+body:not(.skin-vector) .mod-status-icon.status-skipped,
+body:not(.skin-vector) .mod-status-tag.status-4,
+body:not(.skin-vector) .mod-status-icon.status-4 {
+	background-color: var(--theme-empty-color);
+	color: var(--theme-text-color);
+}
+body:not(.skin-vector) .mod-status-tag.status-latest-approved,
+body:not(.skin-vector) .mod-status-icon.status-latest-approved {
+	background: linear-gradient(to right, var(--theme-success-color), var(--theme-info-color));
+}
+ 
+/** 搜索页面调整 **/
+body:not(.skin-vector) #powersearch {
+	filter: revert !important;
+	color: var(--theme-text-color) !important;
+}
+body:not(.skin-vector) #powersearch a:not(.new) {
+	color: var(--theme-link-color);
+}
+body:not(.skin-vector) .search-types .current a {
+	color: var(--theme-text-color) !important;
+}
+body:not(.skin-vector) .mw-search-profile-tabs,
+body:not(.skin-vector) #mw-searchoptions {
+	background-color: var(--theme-card-background-color);
+	border: 1px solid var(--theme-card-border-color) !important;
+	border-radius: var(--theme-card-border-radius);
+	transition: all 0.24s ease;
+}
+body:not(.skin-vector) #mw-searchoptions {
+	margin-block-start: 1em;
+}
+body:not(.skin-vector) #mw-searchoptions label,
+body:not(.skin-vector) #mw-search-togglebox > label {
+	vertical-align: middle;
+}
+body:not(.skin-vector) #mw-search-togglebox > input {
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: var(--theme-card-border-radius);
+	color: var(--theme-button-color);
+	background-color: var(--theme-card-background-color);
+	vertical-align: middle;
+	border: 1px solid var(--theme-card-border-color);
+	transition: all .24s ease;
+}
+body:not(.skin-vector) #mw-search-togglebox > input:focus {
+	outline: none;
+	border-color: var(--theme-button-color);
+}
+body:not(.skin-vector) #mw-search-togglebox > input:hover {
+	color: var(--theme-accent-link-color);
+	background-color: var(--theme-button-color);
+	border-color: var(--theme-button-color);
+	box-shadow: 0 0 0 2px var(--theme-list-item-background-color--hover);
+}
+body:not(.skin-vector) #mw-search-togglebox > input:active {
+	background-color: var(--theme-button-color--active);
+	color: var(--theme-accent-link-color);
+}
+body:not(.skin-vector) #mw-searchoptions .divider {
+	border-bottom-color: var(--theme-border-color);
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	position: relative;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: middle;
+	transition: background-color 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]:checked {
+	background-color: var(--theme-button-color) !important;
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 64px;
+	height: 64px;
+	background-color: var(--theme-card-background-color);
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(calc(15 / 128));
+	transition: fill 0.3s cubic-bezier(.4, 0, .2, 1), transform 0.3s cubic-bezier(.4, 0, .2, 1), opacity 0.3s cubic-bezier(.4, 0, .2, 1), border-color 0.3s cubic-bezier(.4, 0, .2, 1);
+	clip-path: path("M50.42,16.76L22.34,39.45l-8.1-11.46c-1.12-1.58-3.3-1.96-4.88-0.84c-1.58,1.12-1.95,3.3-0.84,4.88l10.26,14.51  c0.56,0.79,1.42,1.31,2.38,1.45c0.16,0.02,0.32,0.03,0.48,0.03c0.8,0,1.57-0.27,2.2-0.78l30.99-25.03c1.5-1.21,1.74-3.42,0.52-4.92  C54.13,15.78,51.93,15.55,50.42,16.76z");
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]:checked::before {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(calc(15 / 64));
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]:focus:not(:active)::after {
+	border: 1px solid var(--theme-button-color);
+	box-shadow: 0 0 0 2px var(--theme-list-item-background-color--hover);
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]:hover::after {
+	border: 1px solid var(--theme-button-color);
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]:checked::after {
+	border: 1px solid var(--theme-button-color);
+}
+body:not(.skin-vector) #mw-searchoptions input[type="checkbox"]::after {
+	content: "";
+	transition: border-color .3s cubic-bezier(.4, 0, .2, 1), box-shadow .3s cubic-bezier(.4, 0, .2, 1);
+	border-radius: inherit;
+	position: absolute;
+	box-sizing: border-box;
+	inset: -1px;
+	border: 1px solid rgba(255, 255, 255, 0.24);
+}
+ 
+/** 链入页面列表计数 **/
+body:not(.skin-vector) #mw-whatlinkshere-list,
+body:not(.skin-vector) #mw-whatlinkshere-list ul {
+	list-style: inside decimal;
+}
+ 
+/** .header-title-extra a 修正 **/
+body:not(.skin-vector) .header-title-extra a {
+	vertical-align: unset;
+}
+ 
+/** caption 颜色修正 **/
+body:not(.skin-vector) table.wikitable>caption {
+	background-color: var(--theme-footer-bottom-color);
+	border-color: var(--theme-footer-top-color);
+}
+ 
+/** select 颜色调整 **/
+body:not(.skin-vector) select {
+	outline-color: var(--theme-button-color);
+}
+ 
+/** 符合直觉的退出按钮颜色 **/
+body:not(.skin-vector)
+	.n-menu
+	> .n-menu-item:last-child
+	.n-menu-item-content:not(.n-menu-item-content--disabled):hover::before {
+	background-color: var(--theme-danger-color);
+}
+body:not(.skin-vector)
+	.n-menu
+	> .n-menu-item:last-child
+	.n-menu-item-content:not(.n-menu-item-content--disabled):hover
+	a#logout {
+	color: var(--theme-accent-link-color);
+}
+ 
+/** 滑条内边距修复 **/
+body:not(.skin-vector) input[type="range"] {
+	padding: unset !important;
+}
+ 
+/** MW 通知气泡圆角 **/
+body:not(.skin-vector) .mw-notification {
+	border-radius: var(--theme-card-border-radius);
+}
+ 
+/** 合并 info、大家族模板的圆角 **/
+body:not(.skin-vector) .infoBox {
+	margin-bottom: 0;
+}
+body:not(.skin-vector) .infoBox:has(+ .infoBox),
+body:not(.skin-vector) .infoBox:has(+ style + .infoBox),
+body:not(.skin-vector) .infoBox:has(+ link + .infoBox),
+body:not(.skin-vector) .infoBox:has(+ .infoBox) > .infoBoxContent,
+body:not(.skin-vector) .infoBox:has(+ style + .infoBox) > .infoBoxContent,
+body:not(.skin-vector) .infoBox:has(+ link + .infoBox) > .infoBoxContent,
+body:not(.skin-vector) table.navbox:has(+ table.navbox),
+body:not(.skin-vector) table.navbox:has(+ style + table.navbox),
+body:not(.skin-vector) table.navbox:has(+ link + table.navbox),
+body:not(.skin-vector) table.navbox:has(+ table.navbox) > tbody > tr > td > table,
+body:not(.skin-vector) table.navbox:has(+ style + table.navbox) > tbody > tr > td > table,
+body:not(.skin-vector) table.navbox:has(+ link + table.navbox) > tbody > tr > td > table {
+	border-bottom-left-radius: 1e-45px !important;
+	border-bottom-right-radius: 1e-45px !important;
+}
+body:not(.skin-vector) .infoBox + .infoBox,
+body:not(.skin-vector) .infoBox + style + .infoBox,
+body:not(.skin-vector) .infoBox + link + .infoBox,
+body:not(.skin-vector) .infoBox + .infoBox > .infoBoxContent,
+body:not(.skin-vector) .infoBox + style + .infoBox > .infoBoxContent,
+body:not(.skin-vector) .infoBox + link + .infoBox > .infoBoxContent,
+body:not(.skin-vector) table.navbox + style + table.navbox,
+body:not(.skin-vector) table.navbox + link + table.navbox,
+body:not(.skin-vector) table.navbox + table.navbox,
+body:not(.skin-vector) table.navbox + table.navbox > tbody > tr > td > table,
+body:not(.skin-vector) table.navbox + style + table.navbox > tbody > tr > td > table,
+body:not(.skin-vector) table.navbox + link + table.navbox > tbody > tr > td > table {
+	border-top-left-radius: 1e-45px !important;
+	border-top-right-radius: 1e-45px !important;
+}
+ 
+/** [[T:黑幕]]适配 **/
+body:not(.skin-vector) .heimu,
+body:not(.skin-vector) .heimu rt,
+body:not(.skin-vector) .colormu,
+body:not(.skin-vector) .colormu rt {
+	border-radius: 0.2rem;
+	padding-inline: 0.2rem;
+}
+ 
+/** [[T:胡话]]适配 **/
+body:not(.skin-vector) .just-kidding-text {
+	color: var(--theme-just-kidding-text-color);
+	text-decoration-color: var(--theme-text-color);
+}
+ 
+/** [[T:假链]]适配 **/
+body:not(.skin-vector) .fakelink {
+	color: var(--theme-link-color) !important;
+}
+body:not(.skin-vector) .fakelink:hover {
+	text-decoration: none !important;
+}
+body:not(.skin-vector) .fakelink:active {
+	color: #faa700 !important;
+}
+ 
+/** [[T:Document]]适配 **/
+body:not(.skin-vector) .template-documentation {
+	background-color: var(--theme-card-background-color) !important;
+	border-color: var(--theme-border-color) !important;
+}
+ 
+/** [[T:Dummyreference]]适配 **/
+body:not(.skin-vector) sup.reference.nowrap[style="color:#002bb8;"] {
+	color: var(--theme-link-color) !important;
+}
+ 
+/** 面包屑美化（大概） **/
+body:not(.skin-vector) #topicpath {
+	background: var(--theme-card-background-color) !important;
+	color: var(--theme-text-color) !important;
+	border-style: solid !important;
+	border-color: var(--theme-border-color) !important;
+	border-radius: 0.25em;
+	filter: revert !important;
+}
+ 
+/* [[T:专题导航]]展开动画 */
+body:not(.skin-vector) .ztdh .menu-item:hover > .menu-content,
+body:not(.skin-vector) .ztdh .menu-item > .menu-content[style*="display: block;"] {
+	opacity: 1;
+	transform: scaleY(1);
+}
+body:not(.skin-vector) .ztdh .menu-item > .menu-content > .menu-popout {
+	transition-property: position;
+	transition-duration: 350ms;
+	transition-behavior: allow-discrete;
+}
+body:not(.skin-vector) .ztdh .menu-item > .menu-content {
+	transform-origin: top center;
+}
+body:not(.skin-vector) .menu-content {
+	opacity: 0;
+	transform: scaleY(0);
+	transition-property: opacity, transform, display;
+	transition-duration: 350ms;
+	transition-behavior: allow-discrete;
+}
+body:not(.skin-vector) .ztdh
+	.menu-item
+	> .menu-content:not([style*="display: block;"])
+	> .menu-popout {
+	position: absolute !important;
+}
+@starting-style {
+	body:not(.skin-vector) .ztdh .menu-item:hover > .menu-content,
+	body:not(.skin-vector) .ztdh .menu-item > .menu-content[style*="display: block;"] {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+}
+ 
+/** 修复[[T:Navbox]]遮挡[[T:User]] **/
+body:not(.skin-vector) table.navbox {
+	border-collapse: revert;
+	box-shadow: revert;
+	overflow: revert;
+}
+body:not(.skin-vector) table.navbox > tbody > tr > td > table {
+	border-collapse: revert;
+	overflow: revert;
+}
+body:not(.skin-vector) table.navbox > tbody > tr > td > table > tbody > tr:first-of-type > :first-child {
+	border-top-left-radius: 0.375rem;
+}
+body:not(.skin-vector) table.navbox > tbody > tr > td > table > tbody > tr:first-of-type > :last-child {
+	border-top-right-radius: 0.375rem;
+}
+body:not(.skin-vector) table.navbox > tbody > tr > td > table > tbody > tr:last-of-type > :first-child {
+	border-bottom-left-radius: 0.375rem;
+}
+body:not(.skin-vector) table.navbox > tbody > tr > td > table > tbody > tr:last-of-type > :last-child {
+	border-bottom-right-radius: 0.375rem;
+}
+/** 修复[[T:Navbox subgroup]]图片问题 **/
+table.navbox-subgroup > tbody > tr > td[style^="width:0%;padding:0px 0px 0px 2px;"] > a > img:not(.noresize) {
+	max-width: initial;
+	height: initial;
+}
+ 
+/** 编辑摘要确保自动换行 **/
+body:not(.skin-vector) .moe-wide-table-wrapper .comment {
+	overflow-wrap: anywhere;
+}
+ 
+/** 回退按钮不断开 **/
+body:not(.skin-vector) .mw-rollback-link {
+	white-space: nowrap;
+}
+ 
+/** 编辑器插入表格示例文字颜色调整 **/
+body:not(.skin-vector) .wikieditor-toolbar-table-preview-content {
+	color: var(--theme-text-color);
+}
+ 
+/** error 适配 **/
+body:not(.skin-vector) .error,
+body:not(.skin-vector) .errorbox {
+	color: var(--theme-danger-color) !important;
+}
+body:not(.skin-vector) .errorbox {
+	border: none;
+	border-radius: 3px;
+	background-color: rgba(var(--theme-danger-color--rgb), 16%);
+}
+ 
+/** 修复 sm2 **/
+body:not(.skin-vector) .sm2-progress .sm2-progress-track {
+	border-radius: 0.65em !important;
+}
+ 
+/** 斜体修正 **/
+body:not(.skin-vector) dfn {
+	font-style: italic !important;
+}
+body:not(.skin-vector) span.comment,
+body:not(.skin-vector) dfn,
+body:not(.skin-vector) i:not([role="img"]):not(.n-base-icon),
+body:not(.skin-vector) em,
+body:not(.skin-vector) span.cm-mw-em {
+	margin-right: initial !important;
+	margin-inline-end: 0.215em !important;
+}
+@supports selector(:empty) {
+	body:not(.skin-vector) span.comment:empty,
+	body:not(.skin-vector) dfn:empty,
+	body:not(.skin-vector) i:not([role="img"]):not(.n-base-icon):empty,
+	body:not(.skin-vector) em:empty,
+	body:not(.skin-vector) span.cm-mw-em:empty {
+		margin-inline-end: initial !important;
+	}
+}
+@supports selector(:-moz-only-whitespace) {
+	body:not(.skin-vector) span.comment:-moz-only-whitespace,
+	body:not(.skin-vector) dfn:-moz-only-whitespace,
+	body:not(.skin-vector)
+		i:not([role="img"]):not(.n-base-icon):-moz-only-whitespace,
+	body:not(.skin-vector) em:-moz-only-whitespace,
+	body:not(.skin-vector) span.cm-mw-em:-moz-only-whitespace {
+		margin-inline-end: initial !important;
+	}
+}
+@supports selector(:blank) {
+	body:not(.skin-vector) span.comment:blank,
+	body:not(.skin-vector) dfn:blank,
+	body:not(.skin-vector) i:not([role="img"]):not(.n-base-icon):blank,
+	body:not(.skin-vector) em:blank,
+	body:not(.skin-vector) span.cm-mw-em:blank {
+		margin-inline-end: initial !important;
+	}
+}
+ 
+/** legend 颜色修复 **/
+body:not(.skin-vector) legend {
+	color: var(--theme-text-color);
+}
+ 
+/** 将 blockquote 的 margin 保留 **/
+body:not(.skin-vector) blockquote {
+	margin: revert;
+}
+ 
+/** W+、IPE中dd修复 **/
+body:not(.skin-vector) #Wikiplus-Quickedit-Preview-Output dd,
+body:not(.skin-vector) .InPageEditPreview dd {
+	margin-left: 1.6em;
+	margin-right: 0;
+}
+ 
+/** ？linemubs-active颜色调整 **/
+body:not(.skin-vector) li.linenums-active {
+	background-color: rgba(var(--theme-accent-color--rgb), 0.5) !important;
+	box-shadow: inset 2px 0 0 rgba(var(--theme-accent-color--rgb), 0.75) !important;
+}
+ 
+/** 日期输入恢复大小 **/
+body:not(.skin-vector) input.mw-widgets-datetime-dateTimeInputWidget-field {
+	box-sizing: content-box;
+}
+ 
+/** 修复缩略图窄屏溢出 **/
+body:not(.skin-vector) .thumb {
+	overflow-x: auto;
+}
+@media (max-width: 576px) {
+	body:not(.skin-vector) .thumb {
+		margin: 0;
+	}
+}
+ 
+/** infobox增加边距 **/
+body:not(.skin-vector) .infobox {
+	margin: 1em 0 1em 1em;
+}
+ 
+/** 避免 google anno 影响 tabs **/
+.TabLabelText > a.google-anno {
+	pointer-events: none;
+}
+ 
+/** 用户页头像恢复 **/
+body:not(.skin-vector) #user-rootpage-avatar {
+	vertical-align: baseline;
+}
+ 
+/** 最后编辑时间、贡献者优化 **/
+body:not(.skin-vector) .avatar-list .user-link[href$="zh.moegirl.org.cn/User:"] {
+	display: none;
+}
+body:not(.skin-vector) .avatar-list .user-link + .user-link {
+	transition: margin-left 0.3s var(--n-bezier), color 0.3s var(--n-bezier),
+		text-decoration-color 0.3s var(--n-bezier);
+}
+body:not(.skin-vector) .avatar-list .user-link:hover + .user-link {
+	margin-left: revert;
+}
+body:not(.skin-vector) #mw-lastmod,
+body:not(.skin-vector) .latest-contributors > .n-text {
+	color: rgba(var(--theme-text-color--rgb), 0.55);
+	font-size: smaller;
+}
+ 
+/** 分类美化 **/
+body:not(.skin-vector) .catlinks#catlinks > div > ul > li {
+	background-color: var(--theme-card-background-color);
+	padding: 0.25em;
+	margin: 0.25em;
+	border-left: none;
+	border-radius: 0.25em;
+	box-shadow: var(--theme-card-box-shadow);
+	transition: background-color 0.24s ease;
+}
+body:not(.skin-vector) .catlinks#catlinks > div > ul > li a {
+	transition: color 0.24s ease;
+}
+body:not(.skin-vector) .catlinks#catlinks > div > ul > li:hover {
+	background-color: var(--theme-button-color);
+}
+body:not(.skin-vector) .catlinks#catlinks > div > ul > li:hover a {
+	color: var(--theme-accent-link-color);
+	background-color: revert !important;
+}
+body:not(.skin-vector) .catlinks#catlinks > div > ul > li > .hotcatlink a {
+	transition: background-color 0.24s ease, color 0.24s ease;
+	border-radius: 0.25em;
+}
+body:not(.skin-vector) .catlinks#catlinks > div > ul > li > .hotcatlink a:hover {
+	background-color: var(--theme-accent-color);
+}
+ 
+/** 讨论区 **/
+body:not(.skin-vector) .comment-actions.relative > .absolute > .rounded-full {
+	transition: transform 0.24s ease;
+}
+ 
+/** 摘要框适配 **/
+body:not(.skin-vector)
+	:is(#mw-content-text, .mw-parser-output, .moe-wikitext-output)
+	input:not([type="file"]):not([type="color"]):not([type="submit"]):not(
+		[type="button"]
+	),
+body:not(.skin-vector)
+	:is(#mw-content-text, .mw-parser-output, .moe-wikitext-output)
+	textarea {
+	color: var(--theme-text-color);
+}
+ 
+/** jQuery **/
+body:not(.skin-vector) .ui-button {
+	vertical-align: middle;
+}
+body:not(.skin-vector) li table.mw-collapsible > tbody > tr > th > span.mw-collapsible-toggle {
+	float: right;
+}
+ 
+/** 分类树按钮颜色调整 **/
+body:not(.skin-vector) .CategoryTreeToggle {
+	color: var(--theme-link-color);
+}
+ 
+/** Scribunto 调试控制台美化 **/
+body:not(.skin-vector) .mw-scribunto-console-fieldset {
+	background-color: var(--theme-card-background-color);
+}
+body:not(.skin-vector) #mw-scribunto-output,
+body:not(.skin-vector) #mw-scribunto-input {
+	white-space: pre-wrap;
+	font-family: monospace, monospace;
+}
+body:not(.skin-vector) div.mw-scribunto-message,
+body:not(.skin-vector) div.mw-scribunto-input,
+body:not(.skin-vector) div.mw-scribunto-print,
+body:not(.skin-vector) div.mw-scribunto-error,
+body:not(.skin-vector) div.mw-scribunto-normalOutput,
+body:not(.skin-vector) div.mw-scribunto-clear {
+	background-color: initial;
+	border: solid;
+	border-radius: .2em;
+	margin-block: .6em;
+	padding: .4em;
+}
+body:not(.skin-vector) div.mw-scribunto-message,
+body:not(.skin-vector) div.mw-scribunto-input {
+	font-weight: bold;
+	color: var(--theme-info-color);
+	transition: color .24s;
+}
+body:not(.skin-vector) div.mw-scribunto-input:has(+ [class|="mw-scribunto"]:not(.mw-scribunto-input)) {
+	border-bottom-style: dashed;
+	border-bottom-width: 1px;
+	border-bottom-left-radius: initial;
+	border-bottom-right-radius: initial;
+	margin-block-end: 0;
+}
+body:not(.skin-vector) div.mw-scribunto-input + [class|="mw-scribunto"]:not(.mw-scribunto-input) {
+	border-top-style: none;
+	border-top-left-radius: initial;
+	border-top-right-radius: initial;
+	margin-block-start: 0;
+}
+body:not(.skin-vector) div[class|="mw-scribunto"]::before {
+	float: right;
+	padding: 0.5em 1em;
+	padding-inline-end: 0.875em;
+	font-size: 0.75rem;
+	font-weight: bold;
+	letter-spacing: 0.125em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+body:not(.skin-vector) div.mw-scribunto-print,
+body:not(.skin-vector) div.mw-scribunto-input:has(+ .mw-scribunto-print) {
+	color: var(--theme-success-color);
+}
+body:not(.skin-vector) div.mw-scribunto-clear {
+	color: var(--theme-warn-color);
+	border-bottom-color: initial;
+}
+body:not(.skin-vector) div.mw-scribunto-error,
+body:not(.skin-vector) div.mw-scribunto-input:has(+ .mw-scribunto-error) {
+	color: var(--theme-danger-color);
+}
+body:not(.skin-vector) div.mw-scribunto-normalOutput,
+body:not(.skin-vector) div.mw-scribunto-input:has(+ .mw-scribunto-normalOutput) {
+	color: var(--theme-text-color);
+}
+body:not(.skin-vector) div.mw-scribunto-input::before {
+	content: "Input";
+}
+body:not(.skin-vector) div.mw-scribunto-message::before {
+	content: "Message";
+}
+body:not(.skin-vector) div.mw-scribunto-input:has(+ .mw-scribunto-print)::before {
+	content: "Print";
+}
+body:not(.skin-vector) div.mw-scribunto-input:has(+ .mw-scribunto-error)::before {
+	content: "Error";
+}
+body:not(.skin-vector) div.mw-scribunto-input:has(+ .mw-scribunto-normalOutput)::before {
+	content: "Output";
+}
+body:not(.skin-vector) div.mw-scribunto-clear::before {
+	content: "Clear";
+}
+body:not(.skin-vector) .scribunto-trace {
+	color: var(--theme-warn-color);
+}
+body:not(.skin-vector) .scribunto-trace > li {
+	list-style-position: inside;
+}
+ 
+/** MoeSkinPlus专用类 **/
+.nomoeskinplus {
+	display: none !important;
+}
+.moeskinplusonly {
+	display: revert !important;
+}
+ 
+:root {
+	--MoeSkinPlus: "4.5";
+	--theme-danger-color--rgb: 208, 48, 80;
+	--theme-danger-color: rgb(var(--theme-danger-color--rgb)) !important;
+	--theme-accent-color: rgb(var(--theme-accent-color--rgb)) !important;
+	--theme-secondary-color: rgb(var(--theme-secondary-color--rgb)) !important;
+	--theme-text-color: rgb(var(--theme-text-color--rgb)) !important;
+	--theme-card-background-color: rgb(
+		var(--theme-card-background-color--rgb)
+	) !important;
+	--theme-just-kidding-text-color: hsl(210deg, 29%, 40%);
+}
