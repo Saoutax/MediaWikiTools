@@ -1,11 +1,7 @@
 "use strict";
 $(() => {
     try {
-        if (
-            $(".will2Be2Deleted")[0]
-            || mw.config.get("wgRevisionId") === 0 && mw.config.get("wgArticleId") === 0
-            || !mw.config.get("wgUserGroups").includes("autopatrol")
-        ) {
+        if (!mw.config.get("wgUserGroups").includes("autopatrol")) {
             return;
         }
 
