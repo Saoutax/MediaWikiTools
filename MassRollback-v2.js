@@ -1,5 +1,5 @@
-/*
-* 修改自星海massRollback，移除了管理员相关，增加bot
+/* 
+* 修改自星海massRollback，增加bot
 */
 "use strict";
 $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).then(() => {
@@ -20,7 +20,8 @@ $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).
         <span class=\"mw-ui-button\" id=\"mw-checkbox-invert\">全选/反选</span> \
         <span class=\"mw-ui-button\" id=\"mw-checkbox-between\" title=\"请勾选需要操作的第一个和最后一个复选框后点击此按钮。\">连选</span> \
         <span class=\"mw-ui-button mw-ui-progressive\" id=\"contributions-undo-button\">撤销</span> \
-        <span class=\"mw-ui-button mw-ui-progressive patroller-show\" id=\"contributions-rollback-button\" title=\"拥有bot或flood用户组时启用markbotedit\">回退</span> \
+        <span class=\"mw-ui-button mw-ui-progressive patroller-show\" id=\"contributions-rollback-button\" title=\"默认不启用markbotedit权限。\">回退</span> \
+        <span class=\"mw-ui-button mw-ui-progressive sysop-show\" id=\"contributions-revdel-button\" title=\"默认仅删除内容和摘要。\">版本删除</span> \
         </div>",
     );
 
@@ -53,7 +54,7 @@ $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).
                     format: "json",
                     title: title,
                     user: user,
-                    markbot: mw.config.get("wgUserGroups").includes("bot") || mw.config.get("wgUserGroups").includes("flood"),
+                    markbot: mw.config.get("wgUserGroups").includes("sysop") && (mw.config.get("wgUserGroups").includes("flood") || document.URL.includes("bot=1")),
                     watchlist: "nochange",
                     tags: "Automation tool",
                     summary: reason ? `${reason} //MassRollback` : "//MassRollback",
@@ -85,7 +86,7 @@ $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).
                     title: title,
                     undo: revid,
                     tags: "Automation tool",
-                    bot: mw.config.get("wgUserGroups").includes("bot") || mw.config.get("wgUserGroups").includes("flood"),
+                    bot: mw.config.get("wgUserGroups").includes("flood") || mw.config.get("wgUserGroups").includes("bot"),
                     watchlist: "nochange",
                     summary: reason ? `${reason} //MassUndo` : "//MassUndo",
                 }).then((result) => {
@@ -93,6 +94,37 @@ $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).
                 });
             } catch (e) {
                 console.log(`撤销失败：${e}` instanceof Error ? e.stack.split("\n")[1].trim() : JSON.stringify(e));
+            }
+        });
+    });
+
+    $("#contributions-revdel-button").click(async () => {
+        const checked = $(".mw-contributions-list li :checkbox:checked");
+        const reason = await oouiDialog.prompt(`<ul><li>选中了${checked.length}个页面，将删除版本内容和编辑摘要</li><li>批量版本删除的原因：<code>xxx//MassRevisionDelete</code></li><li>空白则使用默认原因，取消则不进行版本删除</li></ul><hr>请输入版本删除原因：`, {
+            title: "批量版本删除小工具",
+            size: "medium",
+            required: false,
+        });
+        if (reason === null) { return; }
+        console.log("开始版本删除...");
+        checked.each(function () {
+            const title = this.getAttribute("data-title"),
+                revid = this.getAttribute("data-revid");
+            try {
+                api.postWithToken("csrf", {
+                    action: "revisiondelete",
+                    format: "json",
+                    type: "revision",
+                    target: title,
+                    ids: revid,
+                    tags: "Automation tool",
+                    hide: "comment|content",
+                    reason: reason ? `${reason} //MassRevisionDelete` : "//MassRevisionDelete",
+                }).then((result) => {
+                    console.log(`版本删除：${title}\n${result}`);
+                });
+            } catch (e) {
+                console.log(`版本删除失败：${e}` instanceof Error ? e.stack.split("\n")[1].trim() : JSON.stringify(e));
             }
         });
     });
