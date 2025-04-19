@@ -34,8 +34,10 @@ if (mw.config.get("wgNamespaceNumber") === 0 || mw.config.get("wgNamespaceNumber
                     title: pageTitle,
                     text: newContent,
                     summary: "快速标记急需改进",
+                    tags: "Automation tool",
                     bot: mw.config.get("wgUserGroups").includes("bot"),
-                    minor: true
+                    minor: true,
+                    format: "json"
                 }).done(function () {
                     location.reload();
                 }).fail(function (error) {
