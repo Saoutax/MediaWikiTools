@@ -1,5 +1,5 @@
 if (mw.config.get("wgNamespaceNumber") === 2) { 
-    $(mw.util.addPortletLink("p-cactions", "#", "移动到主名字空间", "move-to-main", "移动到主名字空间", "q")).on("click", function () {
+    $(mw.util.addPortletLink("p-cactions", "#", "快速转正", "move-to-main", "快速转正", "q")).on("click", function () {
         var userPageTitle = mw.config.get("wgPageName");
         var slashIndex = userPageTitle.lastIndexOf("/");
 
@@ -22,7 +22,7 @@ if (mw.config.get("wgNamespaceNumber") === 2) {
             format: "json"
         })
         .done(function () {
-            mw.notify("页面已成功移动到主名字空间，即将跳转……");
+            mw.notify("页面已成功移动，即将跳转……");
             setTimeout(function () {
                 window.location.href = mw.util.getUrl(newTitle);
             }, 2000);
