@@ -30,7 +30,7 @@ $(function() {
                 action: "edit",
                 title: pageName,
                 text: newContent,
-                summary: "移除预加载模板",
+                summary: "[[User:SaoMikoto/js#快速移除预加载模板|移除预加载模板]]",
                 tags: "Automation tool",
                 watchlist: "nochange"
             });
@@ -41,7 +41,7 @@ $(function() {
             }, 2000);
         }).catch(function(error) {
             mw.notify("操作失败: " + error);
-            console.error("清理预加载错误：", error);
+            console.error("清理预加载出错：", error);
         });
     });
 });
