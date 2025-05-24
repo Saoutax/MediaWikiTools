@@ -225,12 +225,14 @@ $(() => {
                         throw moveRes;
                     }
                 } catch (e) {
-                    if (typeof e.error?.code === "string") {
-                        if (e.error.code !== "moderation-move-queued") {
-                            throw e.error;
-                        }
+                    if (e.error?.code === "moderation-move-queued") {
+                        console.log("Move action is queued for moderation. Continuing...");
                     } else {
-                        throw e;
+                        if (typeof e.error?.code === "string") {
+                            throw e.error;
+                        } else {
+                            throw e;
+                        }
                     }
                 }
 
