@@ -10,7 +10,6 @@ if (mw.config.get("wgNamespaceNumber") === 2) {
 
         var newTitle = userPageTitle.substring(slashIndex + 1);
 
-        
         new mw.Api().postWithToken("csrf", {
             action: "move",
             from: userPageTitle,
