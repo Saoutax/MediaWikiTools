@@ -207,6 +207,24 @@ $(() => {
                 })).query.pages[pageid].revisions[0].user;
                 const page = isModule ? `Module:Sandbox/${user}/${mw.config.get("wgTitle")}` : `User:${user}/${pagename}`;
 
+                if (!noNotice) {
+                    // 留言
+                    const notifRes = await api.postWithToken("csrf", {
+                        action: "edit",
+                        assertuser: username,
+                        format: "json",
+                        title: `User talk:${user}`,
+                        section: "new",
+                        sectiontitle: notifTitle,
+                        text: `${convTemplate(notifContent, "2", page)}——~~~~`,
+                        watchlist: watchTalk,
+                        tags: "Automation tool",
+                    });
+                    if (notifRes?.value?.error) {
+                        throw notifRes.value.error.code;
+                    }
+                }
+
                 // 移动页面
                 try {
                     const moveRes = await api.postWithToken("csrf", {
@@ -225,32 +243,12 @@ $(() => {
                         throw moveRes;
                     }
                 } catch (e) {
-                    if (e.error?.code === "moderation-move-queued") {
-                        console.log("Move action is queued for moderation. Continuing...");
-                    } else {
-                        if (typeof e.error?.code === "string") {
+                    if (typeof e.error?.code === "string") {
+                        if (e.error.code !== "moderation-move-queued") {
                             throw e.error;
-                        } else {
-                            throw e;
                         }
-                    }
-                }
-
-                if (!noNotice) {
-                    // 留言
-                    const notifRes = await api.postWithToken("csrf", {
-                        action: "edit",
-                        assertuser: username,
-                        format: "json",
-                        title: `User talk:${user}`,
-                        section: "new",
-                        sectiontitle: notifTitle,
-                        text: `${convTemplate(notifContent, "2", page)}——~~~~`,
-                        watchlist: watchTalk,
-                        tags: "Automation tool",
-                    });
-                    if (notifRes?.value?.error) {
-                        throw notifRes.value.error.code;
+                    } else {
+                        throw e;
                     }
                 }
             }
