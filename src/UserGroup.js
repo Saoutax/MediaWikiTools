@@ -5,8 +5,10 @@
 
     // 用户组配置
     const USER_GROUPS = {
-        'arbiter': { label: '裁', color: '#673ab7', name: '裁决员' },
+        'arbiter': { label: '裁', color: '#e213f5', name: '裁决员' },
         'bureaucrat': { label: '行', color: '#9c27b0', name: '行政员' },
+        'checkuser': { label: '查', color: '#673ab7', name: '用户查核员' },
+        'suppress': { label: '监', color: '#9c27b0', name: '监督员' },
         'sysop': { label: '管', color: '#ec407a', name: '管理员' },
         'interface-admin': { label: '界', color: '#f55b42', name: '界面管理员' },
         'patroller': { label: '巡', color: '#f77f38', name: '巡查员' },
