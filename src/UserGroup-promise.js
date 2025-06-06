@@ -124,7 +124,7 @@
             if (link.classList.contains('mw-userlink')) {
                 var href = link.getAttribute('href');
                 if (href) {
-                    var match = href.match(/\/wiki\/User:([^/?#]+)/);
+                    var match = href.match(/User:([^/?#]+)/);
                     if (match) {
                         username = decodeURIComponent(match[1]).replace(/_/g, ' ');
                     }
