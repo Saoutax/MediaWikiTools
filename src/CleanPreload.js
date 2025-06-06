@@ -1,42 +1,11 @@
-"use strict";
-const api = new mw.Api();
-const pageName = mw.config.get("wgPageName");
+$(function() {
+    const link = mw.util.addPortletLink("p-cactions", "#", "清理预加载", "clear-preload", "清理预加载", "l");
 
-if (mw.config.get("wgArticleId") !== 0) {
-    $(mw.util.addPortletLink("p-cactions", "#", "清理预加载", "clear-preload", "清理预加载", "r")).on("click", function (e) {
+    $(link).on("click", function(e) {
         e.preventDefault();
+        const pageName = mw.config.get("wgPageName");
+        const api = new mw.Api();
 
-        var dialog = new OO.ui.MessageDialog();
-        
-        var windowManager = new OO.ui.WindowManager();
-        $('body').append(windowManager.$element);
-        windowManager.addWindows([dialog]);
-
-        windowManager.openWindow(dialog, {
-            title: '清理预加载',
-            message: '您确定要清理此页面的预加载内容吗？此操作仅会移除页面内HTML注释，请手动检查是否存在遗留。',
-            actions: [
-                {
-                    action: 'confirm',
-                    label: '确认',
-                    flags: ['primary', 'destructive']
-                },
-                {
-                    action: 'cancel',
-                    label: '取消',
-                    flags: 'safe'
-                }
-            ]
-        }).closed.then(function (data) {
-            if (data && data.action === 'confirm') {
-                clearPreload();
-            }
-            
-            windowManager.destroy();
-        });
-    });
-    
-    function clearPreload() {
         api.get({
             action: "query",
             titles: pageName,
@@ -74,5 +43,5 @@ if (mw.config.get("wgArticleId") !== 0) {
             mw.notify("操作失败: " + error);
             console.error("清理预加载出错：", error);
         });
-    }
-}
+    });
+});
