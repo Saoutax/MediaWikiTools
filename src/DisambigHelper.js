@@ -95,7 +95,6 @@ $(function () {
     })
   }
 
-  // 获取页面的当前版本信息
   const getPageInfo = title => {
     return new Promise(resolve => {
       new mw.Api().get({
@@ -123,31 +122,28 @@ $(function () {
     });
   }
 
-  const editWithRetry = async (title, oldContent, newContent, summary, maxRetries = 2) => {
+  const editWithRetry = async (pageTitle, originalLink, newLink, summary, maxRetries = 3) => {
     for (let attempt = 0; attempt < maxRetries; attempt++) {
       try {
-        const pageInfo = await getPageInfo(title);
+        // 获取最新页面信息
+        const pageInfo = await getPageInfo(pageTitle);
         if (!pageInfo) {
           throw new Error('页面不存在');
         }
 
-        if (attempt > 0) {
-          const latestContent = pageInfo.content;
-          const updatedContent = latestContent.replaceAll(oldContent, newContent);
-          
-          if (latestContent === updatedContent) {
-            return { success: true, message: '内容已经是最新的' };
-          }
-          
-          newContent = updatedContent;
+        const currentContent = pageInfo.content;
+        const updatedContent = currentContent.replaceAll(originalLink, newLink);
+        
+        if (currentContent === updatedContent) {
+          return { success: true, message: '内容已经是最新的' };
         }
 
         // 尝试编辑
         const result = await new Promise((resolve, reject) => {
           new mw.Api().postWithToken('csrf', {
             action: 'edit',
-            text: newContent,
-            title: title,
+            text: updatedContent,
+            title: pageTitle,
             minor: true,
             nocreate: true,
             summary: summary,
@@ -174,6 +170,7 @@ $(function () {
             continue;
           }
         }
+        
         if (attempt === maxRetries - 1) {
           return { success: false, error: error };
         }
@@ -242,6 +239,7 @@ $(function () {
         $(`#${id_title} ul`).append(`<li id="${safe_sense}">${sense}<a href="/${safe_sense}">${link}</a><a>${edit_icon}</a></li>`);
         document.getElementById(sense).lastChild.addEventListener('click', async () => {
           send(msg.editing);
+          
           let page_title = mw.config.get().wgPageName;
           let wikitext = await getWikitext(page_title);
           let origin_link = `[[${title}]]`;
@@ -249,16 +247,13 @@ $(function () {
             origin_link = `[[${title}|${display_title}]]`;
           }
           
-          const new_link = `[[${sense}|${display_title}]]`;
-          const new_wikitext = wikitext.replaceAll(origin_link, new_link);
-          const edit_summary = `${msg.disambig}：[[${title}]]→[[${sense}]]`;
-
           const result = await editWithRetry(page_title, origin_link, new_link, edit_summary);
           
           if (result.success) {
             send(msg.edited);
             window.location.reload();
           } else {
+            // 检查是否是编辑冲突
             if (result.error && (result.error.includes('editconflict') || result.error.includes('conflict'))) {
               send(`${msg.editConflict} ${msg.retryFailed}`);
             } else {
