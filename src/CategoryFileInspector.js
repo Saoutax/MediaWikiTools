@@ -1,11 +1,6 @@
-/**
- * @description 查询指定分类下的文件，并且自动挂删完全无使用的图片
- * 适用于 MediaWiki 1.31.7
- */
 (function() {
     'use strict';
 
-    // 检查是否在分类页面
     if (mw.config.get('wgNamespaceNumber') !== 14) {
         return;
     }
@@ -15,13 +10,11 @@
         return;
     }
 
-    // 工具函数
     function copyText(text) {
         return new Promise((resolve, reject) => {
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(text).then(resolve).catch(reject);
             } else {
-                // 降级处理
                 const textArea = document.createElement('textarea');
                 textArea.value = text;
                 textArea.style.position = 'fixed';
@@ -67,13 +60,12 @@
         return members;
     }
 
-    // 主要的文件检查器类
     class CategoryFileInspector {
         constructor(categoryName) {
             this.categoryName = categoryName;
             this.api = new mw.Api();
-            this.status = 'ready'; // ready, failed, querying, acquired
-            this.deleteStatus = 'ready'; // ready, deleting, done
+            this.status = 'ready';
+            this.deleteStatus = 'ready';
             this.failReason = '';
             this.fileUsageData = [];
             this.deleteRecord = [];
@@ -138,7 +130,7 @@
                     action: 'query',
                     list: 'categorymembers',
                     cmtitle: this.categoryName,
-                    cmnamespace: 6, // File namespace
+                    cmnamespace: 6,
                     cmprop: ['title', 'timestamp'],
                     cmsort: 'timestamp',
                     cmdir: 'desc',
@@ -197,7 +189,6 @@
                 }
             }
 
-            // 查询本地使用情况
             const newChunks = this.chunk(filtedFileUsageData, queryLimit);
             for (const fileData of newChunks) {
                 let fucontinue = '';
@@ -225,7 +216,6 @@
                 }
             }
 
-            // 过滤出完全无使用的文件
             return filtedFileUsageData.filter(({fileName, usage, cmused}) => {
                 return !cmused &&
                     usage.length === 0 &&
@@ -281,7 +271,7 @@
 
         renderResults() {
             const content = document.getElementById('inspector-content');
-            let html = '获取成功！该分类下完全无使用的文件如下：<dl>';
+            let html = '获取成功！该分类下无使用的文件如下：<dl>';
             
             this.fileUsageData.forEach(({fileName, usage, selected, deleted, addTime}) => {
                 html += `<dt>`;
@@ -325,7 +315,6 @@
             
             content.innerHTML = html;
             
-            // 绑定事件
             const deleteBtn = document.getElementById('delete-btn');
             if (deleteBtn) {
                 deleteBtn.addEventListener('click', (e) => {
@@ -389,7 +378,7 @@
                 if (done < fileList.length) {
                     await waitInterval(interval);
                 }
-                this.renderResults(); // 实时更新界面
+                this.renderResults();
             }
             
             this.deleteStatus = 'done';
@@ -416,7 +405,6 @@
         }
     }
 
-    // 等待页面加载完成后初始化
     $(document).ready(function() {
         window.categoryFileInspector = new CategoryFileInspector(CATEGORY_NAME);
     });
