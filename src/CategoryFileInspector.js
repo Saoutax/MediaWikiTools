@@ -359,7 +359,7 @@
                         assertUser: currentUser,
                         title: fileName,
                         text: `<noinclude>{{即将删除|1=${reason}|user=${currentUser}}}</noinclude>`,
-                        summary: `CategoryFileInspector: 挂删：${reason}`,
+                        summary: `CategoryFileInspector：挂删：${reason}`,
                         watchlist: 'nochange',
                         tags: 'Automation tool',
                         bot: true
