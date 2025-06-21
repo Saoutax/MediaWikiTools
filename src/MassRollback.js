@@ -24,7 +24,7 @@ $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).
         <span class=\"mw-ui-button\" id=\"mw-checkbox-between\" title=\"请勾选需要操作的第一个和最后一个复选框后点击此按钮。\">连选</span> \
         <span class=\"mw-ui-button mw-ui-progressive\" id=\"contributions-undo-button\">撤销</span> \
         <span class=\"mw-ui-button mw-ui-progressive patroller-show\" id=\"contributions-rollback-button\" title=\"默认不启用markbotedit权限。\">回退</span> \
-        <span class=\"mw-ui-button mw-ui-destructive\" id=\"contributions-registerdelete-button\">挂删</span> \
+        <span class=\"mw-ui-button mw-ui-progressive patroller-show\" id=\"contributions-registerdelete-button\">挂删</span> \
         <span class=\"mw-ui-button mw-ui-progressive sysop-show\" id=\"contributions-revdel-button\" title=\"默认仅删除内容和摘要。\">版本删除</span> \
         </div>",
     );
