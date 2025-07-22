@@ -96,7 +96,7 @@ function MoeNotification() {
 
 $(function () {
     var i18nData = {};
-    var scriptPath = location.protocol + mw.config.get('wgScriptPath');
+    var scriptPath = 'https://cdn.jsdelivr.net/gh/SAOUTAX/MediaWikiTools@main/src/Wikiplus';
     i18nData['zh-cn'] = {
         "__language": "zh-cn",
         "__author": ["Eridanus Sora"],
@@ -332,7 +332,7 @@ $(function () {
      */
     function loadLanguage(language) {
         $.ajax({
-            url: `${scriptPath}/index.php?title=MediaWiki:Gadget-Wikiplus-i18n-${language}.json&action=raw&ctype=text/json`,
+            url: `${scriptPath}/Wikiplus-i18n-${language}.json`,
             dataType: 'json',
             success: function success(data) {
                 if (data.__language && data.__version) {
@@ -1799,7 +1799,7 @@ $(function () {
                 $('head').children(':last').attr({
                     rel: 'stylesheet',
                     type: 'text/css',
-                    href: scriptPath + '/index.php?title=MediaWiki:Gadget-Wikiplus.css&action=raw&ctype=text/css'
+                    href: scriptPath + '/Wikiplus-style.css'
                 });
                 //一些初始化工作
                 this.preloadData = {};
