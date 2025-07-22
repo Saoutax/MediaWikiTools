@@ -96,7 +96,7 @@ function MoeNotification() {
 
 $(function () {
     var i18nData = {};
-    var scriptPath = location.protocol + 'https://cdn.jsdelivr.net/gh/SAOUTAX/MediaWikiTools@main/src/Wikiplus';
+    var scriptPath = location.protocol + mw.config.get('wgScriptPath');
     i18nData['zh-cn'] = {
         "__language": "zh-cn",
         "__author": ["Eridanus Sora"],
@@ -332,7 +332,7 @@ $(function () {
      */
     function loadLanguage(language) {
         $.ajax({
-            url: `${scriptPath}/Wikiplus-i18n-${language}.json`,
+            url: `${scriptPath}/index.php?title=MediaWiki:Gadget-Wikiplus-i18n-${language}.json&action=raw&ctype=text/json`,
             dataType: 'json',
             success: function success(data) {
                 if (data.__language && data.__version) {
@@ -1240,10 +1240,15 @@ $(function () {
                                         var useTime = new Date().valueOf() - timer;
                                         $('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
                                         $('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(('' + i18n('edit_success')).replace(/\$1/ig, useTime.toString()));
-                                        self.sendStatistic(sectionTargetName, useTime);
+                                        if (typeof self.sendStatistic === 'function') {
+                                            self.sendStatistic(sectionTargetName, useTime);
+                                        }
                                         window.onclose = window.onbeforeunload = undefined; //取消页面关闭确认
                                         setTimeout(function () {
-                                            location.reload();
+                                            $('.Wikiplus-InterBox').fadeOut('fast', function () {
+                                                $(this).remove();
+                                                location.reload();
+                                            });
                                         }, 500);
                                     },
                                     fail: function fail(e) {
@@ -1267,10 +1272,15 @@ $(function () {
                                                 var useTime = new Date().valueOf() - timer;
                                                 $('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').css('background', 'rgba(6, 239, 92, 0.44)');
                                                 $('#Wikiplus-Quickedit-Preview-Output').find('.Wikiplus-Banner').text(('' + i18n('edit_success')).replace(/\$1/ig, '' + useTime));
-                                                self.sendStatistic(sectionTargetName, useTime);
+                                                if (typeof self.sendStatistic === 'function') {
+                                                    self.sendStatistic(sectionTargetName, useTime);
+                                                }
                                                 window.onclose = window.onbeforeunload = undefined; //取消页面关闭确认
                                                 setTimeout(function () {
-                                                    location.reload();
+                                                    $('.Wikiplus-InterBox').fadeOut('fast', function () {
+                                                        $(this).remove();
+                                                        location.reload();
+                                                    });
                                                 }, 500);
                                             },
                                             fail: function fail(e) {
@@ -1781,7 +1791,7 @@ $(function () {
                 this.inValidNameSpaces = [-1, 8964];
                 this.defaultSettings = {
                     'key': 'value',
-                    'documatation': 'https://zh.moegirl.org.cn/User:%E5%A6%B9%E7%A9%BA%E9%85%B1/Wikiplus/%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E'
+                    'documatation': 'https://zh.moegirl.org.cn/_?curid=92222'
                 };
                 console.log('正在加载Wikiplus ' + this.version);
                 //载入CSS
@@ -1789,7 +1799,7 @@ $(function () {
                 $('head').children(':last').attr({
                     rel: 'stylesheet',
                     type: 'text/css',
-                    href: scriptPath + '/Wikiplus-style.css'
+                    href: scriptPath + '/index.php?title=MediaWiki:Gadget-Wikiplus.css&action=raw&ctype=text/css'
                 });
                 //一些初始化工作
                 this.preloadData = {};
