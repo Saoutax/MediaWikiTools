@@ -18,17 +18,21 @@ $.when($.ready, mw.loader.using(["mediawiki.api", "ext.gadget.libOOUIDialog"])).
         this.prepend(newChk);
     });
 
-    $("#mw-content-text > p:first").before(
-        "<div style=\"float: right; font-size: 66%; margin: 0.6em 0;\" id=\"mw-history-revision-actions\"> \
-        <span class=\"mw-ui-button\" id=\"mw-checkbox-invert\">全选/反选</span> \
-        <span class=\"mw-ui-button\" id=\"mw-checkbox-between\" title=\"请勾选需要操作的第一个和最后一个复选框后点击此按钮。\">连选</span> \
-        <span class=\"mw-ui-button mw-ui-progressive\" id=\"contributions-undo-button\">撤销</span> \
-        <span class=\"mw-ui-button mw-ui-progressive patroller-show\" id=\"contributions-rollback-button\" title=\"默认不启用markbotedit权限。\">回退</span> \
-        <span class=\"mw-ui-button mw-ui-progressive patroller-show\" id=\"contributions-registerdelete-button\">挂删</span> \
-        <span class=\"mw-ui-button mw-ui-progressive sysop-show\" id=\"contributions-revdel-button\" title=\"默认仅删除内容和摘要。\">版本删除</span> \
-        </div>",
+    const $actionsDiv = $('<div>', { id: 'mw-history-revision-actions' }).css({ float: 'right', 'margin-bottom': '1em' });
+
+    const buttonsConfig = [
+        { label: '全选/反选', id: 'mw-checkbox-invert' },
+        { label: '连选', id: 'mw-checkbox-between', title: '请勾选需要操作的第一个和最后一个复选框后点击此按钮。' },
+        { label: '撤销', id: 'contributions-undo-button', classes: ['mw-ui-progressive'] },
+        { label: '回退', id: 'contributions-rollback-button', classes: ['mw-ui-progressive', 'patroller-show'], title: '默认不启用markbotedit权限。' },
+        { label: '挂删', id: 'contributions-registerdelete-button', classes: ['mw-ui-progressive', 'patroller-show'] },
+        { label: '版本删除', id: 'contributions-revdel-button', classes: ['mw-ui-progressive', 'sysop-show'], title: '默认仅删除内容和摘要。' }
+    ];
+    $actionsDiv.append(
+        ...buttonsConfig.map(cfg => new OO.ui.ButtonWidget(cfg).$element)
     );
 
+    $('div.mw-htmlform-ooui-wrapper.oo-ui-layout.oo-ui-panelLayout.oo-ui-panelLayout-padded.oo-ui-panelLayout-framed').after($actionsDiv);
 
     $("#mw-checkbox-invert").click(() => {
         $("li input[type=\"checkbox\"]").prop("checked", (_i, ele) => !ele);
