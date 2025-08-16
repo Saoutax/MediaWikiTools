@@ -1,4 +1,8 @@
 $(function() {
+    if (mw.config.get('wgNamespaceNumber') !== 0 || mw.config.get("wgRevisionId") === 0 && mw.config.get("wgArticleId") === 0) {
+        return;
+    }
+
     const link = mw.util.addPortletLink("p-cactions", "#", "清理预加载", "clear-preload", "清理预加载", "l");
 
     $(link).on("click", function(e) {
