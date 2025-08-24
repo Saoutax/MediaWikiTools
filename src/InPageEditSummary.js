@@ -20,7 +20,9 @@ function summaryBox($label, $input) {
     const $box = $("<div>", { id: "mysummary", text: "自定义摘要：" });
     $label.after($box);
 
-    if (!Array.isArray(IPESummary)) return;
+    if (!Array.isArray(IPESummary)) {
+        return;
+    }
 
     IPESummary.forEach((item, i) => {
         const summaryItem = typeof item === "string" 
