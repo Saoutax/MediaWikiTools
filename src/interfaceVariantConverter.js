@@ -345,7 +345,7 @@ $(() => (async () => {
 
             if (!window.OpenCC && this.config.useOpenCC) {
                 // Load in order to prevent reference error
-                await libCachedCode.injectCachedCode("https://cdn.jsdelivr.net/gh/Saoutax/MediaWikiTools@main/open-cc.js", "script");
+                await libCachedCode.injectCachedCode("https://cdn.jsdelivr.net/gh/Saoutax/MediaWikiTools@main/src/open-cc.js", "script");
                 /* global OpenCC */
             }
 
